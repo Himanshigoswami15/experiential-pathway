@@ -1,0 +1,260 @@
+/* Styling for Contact Us Page - 1:1 match to experientialpathways.com/contact.html */
+
+.contact-page {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* ===== Banner Section ===== */
+.contact-page .banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.contact-page .banner img.banner-img-desktop {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.contact-page .banner-text.position-absolute {
+  top: 0;
+  width: 100%;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(189, 185, 145, 0.8);
+}
+
+.contact-page .banner-text h1 {
+  color: #3b3500;
+  font-size: clamp(2.8rem, 8vw, 6.5rem);
+  font-family: 'Cinzel', "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* ===== Get in Touch Section ===== */
+.contact-page .get-in-touch {
+  padding-top: 3rem;
+  background-color: #ffffff;
+  text-align: center;
+  position: relative;
+}
+
+.contact-page .get-in-touch h2.heading {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  color: #3b3500;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  margin-bottom: 1rem;
+}
+
+.contact-page .get-in-touch p.lead-text {
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  color: #5f5863;
+  line-height: 1.6;
+  max-width: 850px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+.contact-page .contact-cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-bottom: 60px;
+  position: relative;
+  overflow: visible;
+}
+
+.contact-page .contact-cards .last-img {
+  width: 100%;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: block;
+}
+
+.contact-page .contact-card {
+  width: 300px;
+  height: 220px;
+  padding-bottom: 40px;
+  background: linear-gradient(180deg, #7a7452, #ede3ab);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 25px 25px 0 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.contact-page .contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
+}
+
+.contact-page .contact-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 14px;
+}
+
+.contact-page .contact-card p {
+  color: #2b2707;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Contact Form Section ===== */
+.contact-page .contact-form {
+  background-image: url('/gallery/contact/24.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 4rem;
+}
+
+.contact-page .map {
+  width: 100%;
+  height: 420px;
+  border-radius: 25px;
+  margin-bottom: 30px;
+  border: 2px solid #3b3500;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-page .form {
+  padding: 2rem 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-page .contact-form .form label {
+  font-weight: 700;
+  color: #3b3500;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.contact-page .contact-form .form input,
+.contact-page .contact-form .form textarea {
+  background: transparent;
+  border: 2px solid #3b3500;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 1.05rem;
+  color: #2b2707;
+}
+
+.contact-page .contact-form .form input:focus,
+.contact-page .contact-form .form textarea:focus {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(59, 53, 0, 0.2);
+  outline: none;
+}
+
+.contact-page .contact-form .form button#submitBtn {
+  background: linear-gradient(to right, #fffbe6, #ffffff);
+  padding: 10px 36px;
+  border: 2px solid #3b3500;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #3b3500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.05em;
+}
+
+.contact-page .contact-form .form button#submitBtn:hover {
+  background: #3b3500;
+  color: #ffffff;
+}
+
+.contact-page .contact-form .last-img {
+  overflow: hidden;
+  position: relative;
+  margin-top: 3rem;
+}
+
+.contact-page .contact-form .last-img .upper {
+  position: relative;
+  z-index: 10;
+  display: block;
+  width: 100%;
+}
+
+.contact-page .contact-form .last-img .position-absolute {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* ===== Responsive Breakpoints ===== */
+@media (max-width: 1680px) {
+  .contact-page .contact-cards {
+    padding-bottom: 55px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .contact-page .contact-cards {
+    padding-bottom: 45px;
+  }
+}
+
+@media (max-width: 786px) {
+  .contact-page .banner {
+    height: 50vh;
+    background-image: url('/gallery/contact/25.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .contact-page .banner img.banner-img-desktop {
+    display: none;
+  }
+  .contact-page .form {
+    padding: 1.5rem 1rem;
+  }
+  .contact-page .contact-form .last-img .position-absolute {
+    bottom: -10%;
+  }
+}
+
+@media (max-width: 580px) {
+  .contact-page .contact-card {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 25px;
+  }
+  .contact-page .contact-card p {
+    font-size: 0.95rem;
+  }
+  .contact-page .contact-form .last-img .position-absolute {
+    bottom: -5%;
+  }
+}

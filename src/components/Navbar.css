@@ -1,0 +1,248 @@
+/* ==========================================================================
+   Multi-Tier Navigation & Flyout Submenu Styles
+   Robust diagonal hover bridging & zero-flicker CSS hierarchy
+   ========================================================================== */
+
+.dest-dropdown-wrapper {
+  position: relative;
+}
+
+/* Main Tier 1: Destination Countries */
+.dest-tier1-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  min-width: 180px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16), 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 6px 0;
+  z-index: 1300;
+  list-style: none;
+  margin: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+}
+
+/* Invisible bridge between DESTINATION button and Tier 1 menu */
+.dest-tier1-menu::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: transparent;
+}
+
+/* Generic top bridge for standard dropdowns (About, Programs) */
+.nav-dropdown-bridge::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: transparent;
+}
+
+/* Country Item */
+.dest-country-item {
+  position: relative;
+}
+
+.dest-country-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 20px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color 0.12s ease, color 0.12s ease;
+  white-space: nowrap;
+}
+
+.dest-country-item:hover > .dest-country-link {
+  background-color: #f7f5ed;
+  color: #3a3400;
+}
+
+/* Tier 2: Programs Trigger Flyout */
+.dest-tier2-flyout {
+  position: absolute;
+  top: -6px;
+  left: 100%;
+  padding-left: 6px;
+  z-index: 1310;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  transition-delay: 0.1s;
+}
+
+/* Diagonal hover hit-zone bridge connecting Tier 1 to Tier 2 */
+.dest-tier2-flyout::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  bottom: -14px;
+  left: -22px;
+  width: 32px;
+  background: transparent;
+}
+
+/* Keep Tier 2 open on country hover */
+.dest-country-item:hover > .dest-tier2-flyout {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  transition-delay: 0s;
+}
+
+.dest-tier2-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  min-width: 240px;
+  width: max-content;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+  padding: 6px 0;
+}
+
+/* Program Trigger */
+.dest-program-trigger {
+  position: relative;
+}
+
+.dest-program-trigger-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 20px;
+  color: #1a1a1a;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color 0.12s ease, color 0.12s ease;
+  white-space: nowrap;
+}
+
+.dest-program-trigger:hover > .dest-program-trigger-row {
+  background-color: #f7f5ed;
+  color: #3a3400;
+}
+
+/* Tier 3: Programs List Flyout */
+.dest-tier3-flyout {
+  position: absolute;
+  top: -6px;
+  left: 100%;
+  padding-left: 6px;
+  z-index: 1320;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  transition-delay: 0.1s;
+}
+
+/* Diagonal hover hit-zone bridge connecting Tier 2 to Tier 3 */
+.dest-tier3-flyout::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  bottom: -14px;
+  left: -22px;
+  width: 32px;
+  background: transparent;
+}
+
+/* Keep Tier 3 open on program trigger hover */
+.dest-program-trigger:hover > .dest-tier3-flyout {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  transition-delay: 0s;
+}
+
+.dest-tier3-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  min-width: 320px;
+  width: max-content;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  padding: 8px 0;
+}
+
+.dest-program-link {
+  display: block;
+  padding: 11px 22px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: background-color 0.12s ease, color 0.12s ease;
+  white-space: nowrap;
+}
+
+.dest-program-link:hover {
+  background-color: #f7f5ed;
+  color: #3a3400;
+}
+
+/* ==========================================================================
+   Responsive & Mobile Drawer Styles
+   ========================================================================== */
+
+.ep-navbar-nav {
+  background-color: #3a3400;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  padding: 8px 24px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+}
+
+.ep-mobile-drawer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.85rem;
+  padding-bottom: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 8px;
+  max-height: calc(85vh - 70px);
+  overflow-y: auto;
+}
+
+.ep-mobile-drawer::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ep-mobile-drawer::-webkit-scrollbar-thumb {
+  background: rgba(237, 227, 171, 0.4);
+  border-radius: 4px;
+}
+
+@media (max-width: 991px) {
+  .navbar-inner-wrapper {
+    padding: 0 0.5rem !important;
+  }
+  .ep-navbar-nav {
+    padding: 8px 14px !important;
+  }
+}

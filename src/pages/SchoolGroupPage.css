@@ -1,0 +1,254 @@
+/* Styling for School & Group Trips - 1:1 match to experientialpathways.com/school-group.html */
+
+.school-group-page {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* ===== Hero Section ===== */
+.school-group-page .school-hero {
+  background-image: url('/gallery/home-page/school_group_hero.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 1.5rem;
+}
+
+.school-group-page .school-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.72) 48%, rgba(255, 255, 255, 0.1) 85%, transparent 100%);
+  pointer-events: none;
+}
+
+.school-group-page .school-hero .container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.school-group-page .school-hero-content {
+  max-width: 660px;
+  margin: auto;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.school-group-page .school-subtitle {
+  color: #756f4f;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.school-group-page .school-main-heading {
+  color: #3b3500;
+  font-family: 'Cinzel', "Times New Roman", Georgia, serif;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.18;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+.school-group-page .school-sub-heading {
+  color: #3b3500;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 25px;
+}
+
+.school-group-page .school-desc {
+  color: #4a4632;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  line-height: 1.65;
+  margin-bottom: 35px;
+}
+
+.school-group-page .btn-primary-custom {
+  background-color: #3b3500;
+  color: #fff;
+  padding: 14px 42px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #3b3500;
+  display: inline-block;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  box-shadow: 0 4px 15px rgba(59, 53, 0, 0.25);
+}
+
+.school-group-page .btn-primary-custom:hover {
+  background-color: transparent;
+  color: #3b3500;
+}
+
+.school-group-page .btn-outline-custom {
+  background-color: transparent;
+  color: #3b3500;
+  padding: 18px 45px;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #3b3500;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.school-group-page .btn-outline-custom:hover {
+  background-color: #3b3500;
+  color: #fff;
+}
+
+/* ===== Vision & Expertise Section ===== */
+.school-group-page .vision-section {
+  background-color: #F8F7F4;
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.school-group-page .vision-heading {
+  color: #3b3500;
+  font-weight: 800;
+  margin-bottom: 25px;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.2;
+}
+
+.school-group-page .vision-text {
+  color: #4a4a4a;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.school-group-page .vision-image {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .school-group-page .school-hero {
+    background-position: left;
+    background-attachment: scroll;
+  }
+
+  .school-group-page .school-hero::before {
+    background: rgba(255, 255, 255, 0.88);
+  }
+
+  .school-group-page .vision-image {
+    height: 350px;
+    margin-top: 20px;
+  }
+}
+
+/* ===== Quiz Component Styles ===== */
+.school-group-page .quiz-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.school-group-page .quiz-card {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.school-group-page .quiz-option-label {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border: 2px solid #e0dfd5;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 0;
+  text-align: left;
+}
+
+.school-group-page .quiz-option-label:hover {
+  border-color: #a8a07c;
+  background-color: #fbfbf9;
+}
+
+.school-group-page .quiz-option-label input[type="radio"] {
+  width: 22px;
+  height: 22px;
+  margin-right: 15px;
+  accent-color: #3b3500;
+  cursor: pointer;
+}
+
+.school-group-page .quiz-option-label.selected {
+  border-color: #3b3500;
+  background-color: rgba(117, 111, 79, 0.08);
+}
+
+.school-group-page .quiz-option-text {
+  font-size: 1.15rem;
+  color: #4a4a4a;
+  font-weight: 500;
+}
+
+.school-group-page .quiz-input {
+  border: 2px solid #e0dfd5;
+  border-radius: 12px;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  color: #3b3500;
+  transition: all 0.3s ease;
+}
+
+.school-group-page .quiz-input:focus {
+  border-color: #3b3500;
+  box-shadow: 0 0 0 4px rgba(59, 53, 0, 0.1);
+  outline: none;
+}
+
+.school-group-page .quiz-input::placeholder {
+  color: #b0af9f;
+}
+
+.school-group-page .success-icon {
+  animation: scaleUp 0.5s ease-out forwards;
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
