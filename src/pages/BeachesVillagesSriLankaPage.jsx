@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import FaqSection from '../components/FaqSection';
 import './BeachesVillagesSriLankaPage.css';
 
 export default function BeachesVillagesSriLankaPage() {
@@ -168,6 +169,9 @@ export default function BeachesVillagesSriLankaPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Module */}
+      <FaqSection />
     </div>
   );
 }

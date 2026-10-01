@@ -170,6 +170,12 @@ export default function App() {
           <Route path="/an-immersive-sri-lanka-experience.html" element={<AnImmersiveSriLankaExperiencePage />} />
           <Route path="/beaches-villages-of-sri-lanka" element={<BeachesVillagesSriLankaPage />} />
           <Route path="/beaches-villages-of-sri-lanka.html" element={<BeachesVillagesSriLankaPage />} />
+          <Route path="/beaches-and-villages-of-sri-lanka" element={<BeachesVillagesSriLankaPage />} />
+          <Route path="/beaches-and-villages-of-sri-lanka.html" element={<BeachesVillagesSriLankaPage />} />
+          <Route path="/sri-lanka-beaches" element={<BeachesVillagesSriLankaPage />} />
+          <Route path="/sri-lanka-beaches.html" element={<BeachesVillagesSriLankaPage />} />
+          <Route path="/sri_lanka_beaches_temp" element={<BeachesVillagesSriLankaPage />} />
+          <Route path="/sri_lanka_beaches_temp.html" element={<BeachesVillagesSriLankaPage />} />
           <Route path="/gems-of-sri-lanka" element={<GemsOfSriLankaPage />} />
           <Route path="/gems-of-sri-lanka.html" element={<GemsOfSriLankaPage />} />
           <Route path="/highlights-of-sri-lanka" element={<HighlightsOfSriLankaPage />} />
