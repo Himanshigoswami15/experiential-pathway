@@ -60,6 +60,8 @@ export default function FaqSection() {
       style={{
         position: 'relative',
         width: '100%',
+        maxWidth: '100%',
+        overflow: 'hidden',
         background: 'linear-gradient(to right, rgb(227, 224, 207), rgb(241, 245, 240))',
         backgroundImage: 'url("/gallery/home-page/18_1.png")',
         backgroundSize: 'cover',
@@ -83,8 +85,8 @@ export default function FaqSection() {
           top: 'clamp(-4.5rem, -5.5vw, -3rem)',
           left: 0,
           width: '100%',
+          maxWidth: '100%',
           height: 'auto',
-          minWidth: '1000px',
           pointerEvents: 'none',
           userSelect: 'none',
           zIndex: 2,
