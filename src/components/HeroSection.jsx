@@ -105,6 +105,7 @@ export default function HeroSection() {
             loop
             muted={isMuted}
             playsInline
+            poster="/gallery/home-page/23_1.png"
             style={{
               position: 'absolute',
               top: 0,
@@ -117,9 +118,10 @@ export default function HeroSection() {
               display: 'block'
             }}
           >
+            <source src="https://experientialpathways.com/assets/india%20video-BqUeY7-T.mp4" type="video/mp4" />
+            <source src="https://experientialpathways.com/assets/nepalvideo_compress-BKG0amqc.mp4" type="video/mp4" />
+            <source src="https://experientialpathways.com/assets/bhutan_compress-CccLzWC4.mp4" type="video/mp4" />
             <source src="/assets/india video-BqUeY7-T.mp4" type="video/mp4" />
-            <source src="/assets/nepalvideo_compress-BKG0amqc.mp4" type="video/mp4" />
-            <source src="/assets/bhutan_compress-CccLzWC4.mp4" type="video/mp4" />
             Your browser does not support video playback.
           </video>
 
