@@ -181,34 +181,11 @@ export default function Navbar() {
   };
 
   return (
-    <header className="navbar-fixed-container" style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100%',
-      zIndex: 1200,
-      backgroundColor: 'transparent',
-      pointerEvents: 'none'
-    }}>
-      <div 
-        className="navbar-inner-wrapper"
-        style={{
-          maxWidth: '1240px',
-          margin: '0 auto',
-          padding: '0 1rem',
-          pointerEvents: 'auto'
-        }}
-      >
+    <header className="navbar-fixed-container">
+      <div className="navbar-inner-wrapper">
         <nav className="ep-navbar-nav">
           {/* Main Links Row */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            width: '100%',
-            gap: '0.8rem',
-            flexWrap: 'wrap'
-          }} className="d-none d-lg-flex">
+          <div className="ep-navbar-desktop-row">
             
             {/* HOME */}
             <Link 
@@ -491,32 +468,18 @@ export default function Navbar() {
           </div>
 
           {/* Mobile View Top Bar: Logo on Left + Hamburger on Right */}
-          <div 
-            className="d-lg-none w-100 d-flex justify-content-between align-items-center"
-            style={{ padding: '2px 0' }}
-          >
+          <div className="ep-navbar-mobile-bar">
             <Link 
               to="/" 
               onClick={closeAll}
-              style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
+              className="ep-mobile-logo-link"
               aria-label="Experiential Pathways Home"
             >
-              <div style={{
-                backgroundColor: '#ffffff',
-                padding: '4px 10px',
-                borderRadius: '8px',
-                display: 'inline-flex',
-                alignItems: 'center',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)'
-              }}>
+              <div className="ep-mobile-logo-box">
                 <img 
                   src="/gallery/home-page/logo.png" 
                   alt="Experiential Pathways" 
-                  style={{
-                    height: 'clamp(28px, 4.5vw, 36px)',
-                    width: 'auto',
-                    display: 'block'
-                  }}
+                  className="ep-mobile-logo-img"
                   onError={(e) => { e.target.src = 'gallery/home-page/logo.png'; }}
                 />
               </div>
@@ -525,18 +488,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: '#ffffff',
-                fontSize: '1.8rem',
-                cursor: 'pointer',
-                padding: '4px 8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                lineHeight: 1
-              }}
+              className="ep-mobile-hamburger-btn"
             >
               {mobileMenuOpen ? '✕' : '☰'}
             </button>
@@ -544,9 +496,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Drawer */}
           {mobileMenuOpen && (
-            <div 
-              className="d-lg-none w-100 ep-mobile-drawer"
-            >
+            <div className="ep-mobile-drawer">
               {/* HOME */}
               <Link 
                 to="/" 

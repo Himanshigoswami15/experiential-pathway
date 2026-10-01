@@ -11,6 +11,10 @@
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     color: #2b2707;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 /* Hero Banner - exact panoramic crop & framing matching reference */

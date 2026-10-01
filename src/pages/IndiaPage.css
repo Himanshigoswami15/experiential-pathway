@@ -314,8 +314,19 @@
   margin: 0 auto;
 }
 
+.india-page .destination-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .india-page .destination-card {
-  width: 350px;
+  width: 100%;
+  max-width: 340px;
   border-radius: 18px;
   padding: 24px;
   background-color: #ffffff;
@@ -324,6 +335,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .india-page .destination-card:hover {
@@ -402,8 +414,8 @@
 
 @media (max-width: 992px) {
   .india-page .info {
-    margin: 2rem 2rem;
-    padding: 2.5rem 2rem 4rem;
+    margin: 1.5rem 1.5rem !important;
+    padding: 2.5rem 1.5rem 3.5rem !important;
   }
   .india-page .itinerarys {
     margin-bottom: -3rem;
@@ -412,11 +424,13 @@
 
 @media (max-width: 786px) {
   .india-page .destination-name {
-    margin-bottom: -1.5rem;
+    font-size: clamp(2.4rem, 12vw, 4.5rem) !important;
+    margin-bottom: -1rem !important;
   }
   .india-page .info {
-    margin: 20px 20px 0;
-    padding: 25px 20px 20px !important;
+    margin: 15px 10px 0 !important;
+    padding: 20px 12px 16px !important;
+    border-radius: 18px !important;
   }
   .india-page .itinerarys {
     margin-bottom: 0;
@@ -425,10 +439,15 @@
 }
 
 @media (max-width: 580px) {
+  .india-page .info {
+    margin: 12px 6px 0 !important;
+    padding: 16px 8px 14px !important;
+  }
   .india-page .info .row .col-4,
   .india-page .info .row .col-6 {
     width: 50%;
     margin-bottom: 1.2rem;
+    padding: 0 4px;
   }
   .india-page .info .row .col-4 h3 {
     font-size: 13px;
@@ -441,6 +460,7 @@
     max-width: 320px;
     padding-top: 3.8rem;
     margin-bottom: 20px;
+    box-sizing: border-box;
   }
   .india-page .destination-cards {
     flex-direction: column;
@@ -450,5 +470,9 @@
   .india-page .destination-card {
     width: 100%;
     max-width: 340px;
+    box-sizing: border-box;
+  }
+  .india-page .gallery .col-4 {
+    padding: 0 4px;
   }
 }

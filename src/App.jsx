@@ -92,6 +92,10 @@ export default function App() {
           <Route path="/transform.html" element={<TransformativePage />} />
 
           {/* Destinations */}
+          <Route path="/destination" element={<DestinationPage defaultDest="india" />} />
+          <Route path="/destination.html" element={<DestinationPage defaultDest="india" />} />
+          <Route path="/destinations" element={<DestinationPage defaultDest="india" />} />
+          <Route path="/destinations.html" element={<DestinationPage defaultDest="india" />} />
           <Route path="/destination/:id" element={<DestinationPage />} />
           <Route path="/india" element={<IndiaPage />} />
           <Route path="/india.html" element={<IndiaPage />} />
