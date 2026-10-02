@@ -144,6 +144,14 @@ export default function SchoolGroupPage() {
               educators expand learning beyond the classroom through immersive service and cultural experiences.
             </p>
             <div className="hero-actions">
+              <button 
+                type="button" 
+                id="heroCustomizeBtn"
+                onClick={handleToggleQuiz}
+                className="btn-primary-custom text-uppercase"
+              >
+                Start Customizing Your Program
+              </button>
               <a 
                 href="https://drive.google.com/file/d/1tphxyX0TYjiUmSC192HIbHaiWHk6LLQD/view?usp=sharing" 
                 target="_blank" 
@@ -212,20 +220,21 @@ export default function SchoolGroupPage() {
             </div>
           </div>
 
-          {/* Call to Action Button Row */}
-          <div className="row mt-4">
-            <div className="col-12 text-center">
-              <button 
-                id="showQuizBtn" 
-                onClick={handleToggleQuiz}
-                className="btn-outline-custom"
-              >
-                {showQuiz ? "Close Customizer" : "Start Customizing Your Program"}
-              </button>
-
-              {/* Quiz Container */}
-              {showQuiz && (
-                <div id="quizContainer" className="quiz-container mt-5">
+          {/* Quiz Container (Opened from Hero Action) */}
+          {showQuiz && (
+            <div className="row mt-4">
+              <div className="col-12 text-center">
+                <div id="quizContainer" className="quiz-container mt-2">
+                  <div className="d-flex justify-content-end mb-3">
+                    <button 
+                      type="button" 
+                      onClick={() => setShowQuiz(false)} 
+                      className="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1"
+                      style={{ fontSize: '0.85rem' }}
+                    >
+                      ✕ Close Customizer
+                    </button>
+                  </div>
                   {/* Step 0: Quiz Intro */}
                   {quizStep === 'intro' && (
                     <div id="quizIntro" className="quiz-card p-4 p-md-5 text-center mx-auto">
@@ -415,9 +424,9 @@ export default function SchoolGroupPage() {
                     </div>
                   )}
                 </div>
-              )}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
