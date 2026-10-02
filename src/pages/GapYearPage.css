@@ -156,30 +156,39 @@
 .gap-year-page .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 15px;
+  grid-gap: 20px;
   max-width: 1350px;
   margin: 0 auto;
 }
 
 .gap-year-page .gallery-grid img.img-cover {
   width: 100%;
-  height: 380px;
+  aspect-ratio: 16 / 10;
+  height: auto;
+  min-height: 280px;
+  max-height: 440px;
   object-fit: cover;
-  border-radius: 8px;
+  object-position: center top;
+  border-radius: 12px;
   display: block;
-  transition: transform 0.35s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .gap-year-page .gallery-grid img.img-cover:hover {
-  transform: scale(1.02);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
 }
 
 @media (max-width: 768px) {
   .gap-year-page .gallery-grid {
     grid-template-columns: 1fr;
+    grid-gap: 16px;
   }
   .gap-year-page .gallery-grid img.img-cover {
-    height: 260px;
+    min-height: 220px;
+    max-height: 340px;
+    border-radius: 10px;
   }
   .gap-year-page .card-title {
     font-size: 17px;
