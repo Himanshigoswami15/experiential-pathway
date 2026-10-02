@@ -13,9 +13,9 @@ export default function GapYearPage() {
       <div className="hero-section about-subpage pb-5">
         <img 
           className="w-100" 
-          src="/gallery/programs/gap year/95_ek2haa.png" 
+          src="/gallery/programs/gap year/gap_year_hero.png" 
           alt="Why Take a Gap Year Abroad" 
-          onError={(e) => { e.target.src = 'gallery/programs/gap year/95_ek2haa.png'; }}
+          onError={(e) => { e.target.src = 'gallery/programs/gap year/gap_year_hero.png'; }}
         />
         <div className="container">
           <div className="row">
