@@ -13,7 +13,7 @@ export default function GapYearPage() {
       <div className="hero-section about-subpage pb-5">
         <img 
           className="w-100" 
-          src="/gallery/programs/gap year/gap_year_hero.png?v=3" 
+          src="/gallery/programs/gap year/gap_year_hero.png?v=5" 
           alt="Why Take a Gap Year Abroad" 
           onError={(e) => { e.target.src = 'gallery/programs/gap year/gap_year_hero.png'; }}
         />

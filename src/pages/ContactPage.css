@@ -230,7 +230,7 @@
 @media (max-width: 786px) {
   .contact-page .banner {
     height: 50vh;
-    background-image: url('/gallery/contact/25.png');
+    background-image: url('/gallery/contact/contact_us.webp');
     background-size: cover;
     background-position: center;
   }

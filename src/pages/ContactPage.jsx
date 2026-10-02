@@ -49,9 +49,9 @@ export default function ContactPage() {
       <section className="banner position-relative">
         <img 
           className="banner-img-desktop" 
-          src="/gallery/contact/25.png" 
+          src="/gallery/contact/contact_us.webp" 
           alt="Contact Us Banner"
-          onError={(e) => { e.target.src = 'gallery/contact/25.png'; }}
+          onError={(e) => { e.target.src = 'gallery/contact/contact_us.webp'; }}
         />
         <div className="banner-text position-absolute">
           <h1 className="text-uppercase text-center">Contact us</h1>

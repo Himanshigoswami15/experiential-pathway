@@ -43,7 +43,7 @@ export default function AboutPage() {
           justifyContent: 'center',
           alignItems: 'flex-start',
           textAlign: 'center',
-          backgroundImage: 'url("/gallery/about-page/about.png")',
+          backgroundImage: 'url("/gallery/about-page/about_us.webp?v=2")',
           backgroundSize: 'cover',
           backgroundPosition: 'center -50px',
           backgroundRepeat: 'no-repeat',
