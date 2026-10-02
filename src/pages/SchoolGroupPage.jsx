@@ -50,7 +50,8 @@ export default function SchoolGroupPage() {
     fullName: '',
     email: '',
     school: '',
-    phone: ''
+    phone: '',
+    comments: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -97,6 +98,8 @@ export default function SchoolGroupPage() {
       email: formData.email,
       school: formData.school,
       phone: formData.phone,
+      comments: formData.comments,
+      message: formData.comments,
       goal: quizData[0].options.find(o => o.value === userAnswers.goal)?.text || '',
       age: quizData[1].options.find(o => o.value === userAnswers.age)?.text || '',
       timing: quizData[2].options.find(o => o.value === userAnswers.timing)?.text || ''
@@ -377,6 +380,20 @@ export default function SchoolGroupPage() {
                             placeholder="+1 (555) 000-0000"
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="comments" className="form-label text-uppercase fw-bold small">
+                            Comments / Special Requests
+                          </label>
+                          <textarea 
+                            className="form-control quiz-input" 
+                            id="comments" 
+                            rows={3}
+                            placeholder="Share any special goals, group size, specific dates, or questions..."
+                            value={formData.comments}
+                            onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
+                            style={{ resize: 'vertical', minHeight: '90px' }}
                           />
                         </div>
 
