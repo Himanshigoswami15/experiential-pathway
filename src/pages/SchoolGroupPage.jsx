@@ -18,7 +18,8 @@ export default function SchoolGroupPage() {
         { text: "Service Learning & Community Impact", value: "Service" },
         { text: "Cultural Immersion & History", value: "Culture" },
         { text: "Outdoor Adventure & Nature", value: "Nature" },
-        { text: "Language Intensive Practice", value: "Language" }
+        { text: "Language Intensive Practice", value: "Language" },
+        { text: "Other / Custom (Add comments)", value: "Other" }
       ]
     },
     {
@@ -27,7 +28,8 @@ export default function SchoolGroupPage() {
       options: [
         { text: "Middle School (11-14)", value: "Middle" },
         { text: "High School (14-18)", value: "High" },
-        { text: "College / University", value: "College" }
+        { text: "College / University", value: "College" },
+        { text: "Other / Mixed Age Groups (Add comments)", value: "Other" }
       ]
     },
     {
@@ -36,7 +38,8 @@ export default function SchoolGroupPage() {
       options: [
         { text: "Spring Break", value: "Spring" },
         { text: "Summer", value: "Summer" },
-        { text: "Fall / Winter", value: "Fall" }
+        { text: "Fall / Winter", value: "Fall" },
+        { text: "Other / Flexible Dates (Add comments)", value: "Other" }
       ]
     }
   ];
@@ -77,6 +80,24 @@ export default function SchoolGroupPage() {
     if (currentQuestionIndex < quizData.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
+      // Collect any comments written during the quiz steps into formData.comments
+      const collectedNotes = [];
+      if (userAnswers.goal_comment) {
+        collectedNotes.push(`Goal (${userAnswers.goal || 'Custom'}): ${userAnswers.goal_comment}`);
+      }
+      if (userAnswers.age_comment) {
+        collectedNotes.push(`Age (${userAnswers.age || 'Custom'}): ${userAnswers.age_comment}`);
+      }
+      if (userAnswers.timing_comment) {
+        collectedNotes.push(`Timing (${userAnswers.timing || 'Custom'}): ${userAnswers.timing_comment}`);
+      }
+
+      if (collectedNotes.length > 0 && !formData.comments) {
+        setFormData(prev => ({
+          ...prev,
+          comments: collectedNotes.join('\n')
+        }));
+      }
       setQuizStep('details');
     }
   };
@@ -93,16 +114,35 @@ export default function SchoolGroupPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const goalLabel = userAnswers.goal === 'Other'
+      ? (userAnswers.goal_comment ? `Other (${userAnswers.goal_comment})` : 'Other / Custom')
+      : (quizData[0].options.find(o => o.value === userAnswers.goal)?.text || '');
+
+    const ageLabel = userAnswers.age === 'Other'
+      ? (userAnswers.age_comment ? `Other (${userAnswers.age_comment})` : 'Other / Mixed')
+      : (quizData[1].options.find(o => o.value === userAnswers.age)?.text || '');
+
+    const timingLabel = userAnswers.timing === 'Other'
+      ? (userAnswers.timing_comment ? `Other (${userAnswers.timing_comment})` : 'Other / Flexible')
+      : (quizData[2].options.find(o => o.value === userAnswers.timing)?.text || '');
+
+    const allComments = [
+      formData.comments,
+      userAnswers.goal_comment && !formData.comments?.includes(userAnswers.goal_comment) ? `Goal notes: ${userAnswers.goal_comment}` : '',
+      userAnswers.age_comment && !formData.comments?.includes(userAnswers.age_comment) ? `Age notes: ${userAnswers.age_comment}` : '',
+      userAnswers.timing_comment && !formData.comments?.includes(userAnswers.timing_comment) ? `Timing notes: ${userAnswers.timing_comment}` : '',
+    ].filter(Boolean).join('\n');
+
     const submissionData = {
       fullName: formData.fullName,
       email: formData.email,
       school: formData.school,
       phone: formData.phone,
-      comments: formData.comments,
-      message: formData.comments,
-      goal: quizData[0].options.find(o => o.value === userAnswers.goal)?.text || '',
-      age: quizData[1].options.find(o => o.value === userAnswers.age)?.text || '',
-      timing: quizData[2].options.find(o => o.value === userAnswers.timing)?.text || ''
+      comments: allComments || 'None',
+      message: allComments || 'None',
+      goal: goalLabel,
+      age: ageLabel,
+      timing: timingLabel
     };
 
     try {
@@ -270,7 +310,7 @@ export default function SchoolGroupPage() {
                       <h4 className="fw-bold mb-4" style={{ color: '#3b3500', fontSize: '1.5rem' }}>
                         {currentQ.question}
                       </h4>
-                      <div className="quiz-options d-flex flex-column gap-3 mb-4">
+                      <div className="quiz-options d-flex flex-column gap-3 mb-3">
                         {currentQ.options.map(opt => {
                           const isSelected = userAnswers[currentQ.id] === opt.value;
                           return (
@@ -291,6 +331,53 @@ export default function SchoolGroupPage() {
                           );
                         })}
                       </div>
+
+                      {/* Comment section for the question option */}
+                      {userAnswers[currentQ.id] === 'Other' ? (
+                        <div className="mb-4 text-start">
+                          <label htmlFor="stepCommentInput" className="form-label small fw-bold text-uppercase" style={{ color: '#3b3500' }}>
+                            Please add your comments / specific requirements:
+                          </label>
+                          <textarea 
+                            id="stepCommentInput"
+                            className="form-control quiz-input"
+                            rows={3}
+                            placeholder="Write your comments, custom goals, or specific ideas here..."
+                            value={userAnswers[currentQ.id + '_comment'] || ''}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setUserAnswers(prev => ({
+                                ...prev,
+                                [currentQ.id + '_comment']: val
+                              }));
+                            }}
+                            autoFocus
+                            style={{ resize: 'vertical', minHeight: '80px' }}
+                          />
+                        </div>
+                      ) : (
+                        <div className="mb-4 text-start">
+                          <details className="quiz-comment-accordion">
+                            <summary style={{ cursor: 'pointer', fontSize: '0.92rem', color: '#756f4f', fontWeight: '600' }}>
+                              💬 Add comments or special notes for this choice (Optional)
+                            </summary>
+                            <textarea 
+                              className="form-control quiz-input mt-2"
+                              rows={2}
+                              placeholder="Any specific comments or notes for this step?..."
+                              value={userAnswers[currentQ.id + '_comment'] || ''}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setUserAnswers(prev => ({
+                                  ...prev,
+                                  [currentQ.id + '_comment']: val
+                                }));
+                              }}
+                              style={{ resize: 'vertical' }}
+                            />
+                          </details>
+                        </div>
+                      )}
                       <div className="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
                         <button 
                           onClick={handleBackQuestion} 
