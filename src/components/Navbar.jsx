@@ -125,7 +125,7 @@ export default function Navbar() {
   const handleAboutLeave = () => {
     aboutTimeoutRef.current = setTimeout(() => {
       setAboutDropdownOpen(false);
-    }, 150);
+    }, 350);
   };
 
   const handleDestEnter = () => {
@@ -135,7 +135,7 @@ export default function Navbar() {
   const handleDestLeave = () => {
     destTimeoutRef.current = setTimeout(() => {
       setDestDropdownOpen(false);
-    }, 150);
+    }, 350);
   };
 
   const handleProgEnter = () => {
@@ -145,7 +145,7 @@ export default function Navbar() {
   const handleProgLeave = () => {
     progTimeoutRef.current = setTimeout(() => {
       setProgDropdownOpen(false);
-    }, 150);
+    }, 350);
   };
 
   // Close dropdowns when clicking outside
@@ -209,7 +209,7 @@ export default function Navbar() {
 
             {/* ABOUT US ▾ */}
             <div 
-              style={{ position: 'relative' }} 
+              style={{ position: 'relative', paddingBottom: '12px', marginBottom: '-12px' }} 
               ref={aboutRef}
               onMouseEnter={handleAboutEnter}
               onMouseLeave={handleAboutLeave}
@@ -244,7 +244,7 @@ export default function Navbar() {
                 className="nav-dropdown-bridge"
                 style={{
                   position: 'absolute',
-                  top: 'calc(100% + 4px)',
+                  top: '100%',
                   left: 0,
                   backgroundColor: '#ffffff',
                   borderRadius: '8px',
@@ -372,7 +372,7 @@ export default function Navbar() {
 
             {/* PROGRAMS ▾ */}
             <div 
-              style={{ position: 'relative' }} 
+              style={{ position: 'relative', paddingBottom: '12px', marginBottom: '-12px' }} 
               ref={progRef}
               onMouseEnter={handleProgEnter}
               onMouseLeave={handleProgLeave}
@@ -407,7 +407,7 @@ export default function Navbar() {
                 className="nav-dropdown-bridge"
                 style={{
                   position: 'absolute',
-                  top: 'calc(100% + 4px)',
+                  top: '100%',
                   left: 0,
                   backgroundColor: '#ffffff',
                   borderRadius: '8px',
