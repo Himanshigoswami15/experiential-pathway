@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAdminData } from '../context/AdminDataContext';
 import FaqSection from '../components/FaqSection';
 import './IndiaPage.css';
 
 export default function BhutanPage() {
+  const { data } = useAdminData();
+  const bhutanItineraries = data?.destinations?.bhutan?.itineraries || [];
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -102,47 +106,28 @@ export default function BhutanPage() {
       {/* ===== Itineraries Section ===== */}
       <section className="itinerarys pt-4">
         <div className="itinerary-cards d-flex flex-wrap justify-content-center align-items-stretch gap-4">
-          {/* Card 1 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/india/43.png" 
-              alt="Bhutan Cultural Adventure" 
-              onError={(e) => { e.target.src = 'gallery/india/43.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">ITINERARY 01</h2>
-            <p className="subtitle fw-bold fst-italic">Bhutan Cultural Adventure</p>
-            <p className="time"><span className="fw-bold">Days: </span>10 Days <span className="fw-bold ms-2">Country: </span>BHUTAN</p>
-            <div className="itineraray-desc">
-              Learn about Bhutanese Culture
-              <br />Visit sacred Dzongs &amp; Monasteries
-              <br />Participate in Community Learning
-              <br />Hike through pristine Himalayan Valleys
-              <br />Experience Traditional Archery &amp; Arts
+          {bhutanItineraries.map((it, idx) => (
+            <div key={it.id || idx} className="itinerary-card text-center position-relative">
+              <img 
+                className="position-absolute itineraray-img" 
+                src={it.img || '/gallery/india/43.png'} 
+                alt={it.title} 
+                onError={(e) => { e.target.src = '/gallery/india/43.png'; }}
+              />
+              <h2 className="text-uppercase fw-bold">{it.title}</h2>
+              {it.subtitle && (
+                <p className="subtitle fw-bold fst-italic">{it.subtitle}</p>
+              )}
+              <p className="time">
+                <span className="fw-bold">Days: </span>{it.days || '10 Days'} 
+                <span className="fw-bold ms-2">Country: </span>{it.country || 'BHUTAN'}
+              </p>
+              <div className="itineraray-desc" style={{ whiteSpace: 'pre-line' }}>
+                {it.desc}
+              </div>
+              <Link to={it.link || '/contact'} className="btn-link text-uppercase">View Itinerary</Link>
             </div>
-            <Link to="/bhutan-cultural-adventure" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
-
-          {/* Card 2 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/india/44.png" 
-              alt="Tiger's Nest Discovery" 
-              onError={(e) => { e.target.src = 'gallery/india/44.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">ITINERARY 02</h2>
-            <p className="subtitle fw-bold fst-italic">Tiger's Nest Discovery</p>
-            <p className="time"><span className="fw-bold">Days: </span>08 Days <span className="fw-bold ms-2">Country: </span>BHUTAN</p>
-            <div className="itineraray-desc">
-              Ascend to cliffside Paro Taktsang
-              <br />Explore ancient valley trails &amp; wildlife
-              <br />Engage with Buddhist scholars &amp; monks
-              <br />Experience traditional homestays
-              <br />Discover Gross National Happiness
-            </div>
-            <Link to="/bhutan-dragons-nest-discovery" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
+          ))}
         </div>
       </section>
 

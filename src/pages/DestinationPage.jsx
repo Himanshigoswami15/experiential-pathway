@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useAdminData } from '../context/AdminDataContext';
 import IndiaPage from './IndiaPage';
 import NepalPage from './NepalPage';
 import BhutanPage from './BhutanPage';
@@ -141,7 +142,8 @@ export default function DestinationPage({ defaultDest }) {
     return <SriLankaPage />;
   }
 
-  const dest = destinationsData[destKey] || destinationsData.india;
+  const dest = data?.destinations?.[destKey] || destinationsData[destKey] || destinationsData.india;
+  const programsList = dest.itineraries || dest.programs || [];
 
   return (
     <main style={{ backgroundColor: '#fdfbf7', fontFamily: "'Poppins', sans-serif", color: '#4a4632' }}>
@@ -195,7 +197,7 @@ export default function DestinationPage({ defaultDest }) {
             gap: '2.5rem',
             textAlign: 'left'
           }}>
-            {dest.programs.map((prog, index) => (
+            {programsList.map((prog, index) => (
               <div 
                 key={index}
                 style={{

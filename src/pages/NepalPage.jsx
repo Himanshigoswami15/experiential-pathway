@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAdminData } from '../context/AdminDataContext';
 import FaqSection from '../components/FaqSection';
 import './IndiaPage.css';
 
 export default function NepalPage() {
+  const { data } = useAdminData();
+  const nepalItineraries = data?.destinations?.nepal?.itineraries || [];
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -103,47 +107,28 @@ export default function NepalPage() {
       {/* ===== Itineraries Section ===== */}
       <section className="itinerarys pt-4">
         <div className="itinerary-cards d-flex flex-wrap justify-content-center align-items-stretch gap-4">
-          {/* Card 1 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/nepal/4.png" 
-              alt="Yeti Explorers" 
-              onError={(e) => { e.target.src = 'gallery/nepal/4.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">ITINERARY 01</h2>
-            <p className="subtitle fw-bold fst-italic">Yeti Explorers!</p>
-            <p className="time"><span className="fw-bold">Days: </span>11 Days <span className="fw-bold ms-2">Country: </span>NEPAL</p>
-            <div className="itineraray-desc">
-              Learn about Nepal
-              <br />Enjoy White water Rafting
-              <br />Learn about Pokharan Culture
-              <br />Hike through Forests
-              <br />Trek to Poon hill.
+          {nepalItineraries.map((it, idx) => (
+            <div key={it.id || idx} className="itinerary-card text-center position-relative">
+              <img 
+                className="position-absolute itineraray-img" 
+                src={it.img || '/gallery/nepal/4.png'} 
+                alt={it.title} 
+                onError={(e) => { e.target.src = '/gallery/nepal/4.png'; }}
+              />
+              <h2 className="text-uppercase fw-bold">{it.title}</h2>
+              {it.subtitle && (
+                <p className="subtitle fw-bold fst-italic">{it.subtitle}</p>
+              )}
+              <p className="time">
+                <span className="fw-bold">Days: </span>{it.days || '10 Days'} 
+                <span className="fw-bold ms-2">Country: </span>{it.country || 'NEPAL'}
+              </p>
+              <div className="itineraray-desc" style={{ whiteSpace: 'pre-line' }}>
+                {it.desc}
+              </div>
+              <Link to={it.link || '/contact'} className="btn-link text-uppercase">View Itinerary</Link>
             </div>
-            <Link to="/poon-hill-trek" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
-
-          {/* Card 2 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/nepal/5.png" 
-              alt="Nepal Village Life" 
-              onError={(e) => { e.target.src = 'gallery/nepal/5.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">ITINERARY 02</h2>
-            <p className="subtitle fw-bold fst-italic">Nepal Village Life</p>
-            <p className="time"><span className="fw-bold">Days: </span>10 Days <span className="fw-bold ms-2">Country: </span>NEPAL</p>
-            <div className="itineraray-desc">
-              Learn about Nepal
-              <br />Enjoy White water Rafting
-              <br />Experience a homestay at the Village home
-              <br />Service village with Locals
-              <br />Trek to Namobuddha
-            </div>
-            <Link to="/nepali-village-life" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
+          ))}
         </div>
       </section>
 

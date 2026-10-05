@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAdminData } from '../context/AdminDataContext';
 import FaqSection from '../components/FaqSection';
 import './IndiaPage.css';
 
 export default function IndiaPage() {
+  const { data } = useAdminData();
+  const indiaItineraries = data?.destinations?.india?.itineraries || [];
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -102,73 +106,28 @@ export default function IndiaPage() {
       {/* ===== Itineraries Section ===== */}
       <section className="itinerarys pt-4">
         <div className="itinerary-cards d-flex flex-wrap justify-content-center align-items-stretch gap-4">
-          {/* Card 1 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/india/43.png" 
-              alt="Rajasthan Program" 
-              onError={(e) => { e.target.src = 'gallery/india/43.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">Rajasthan Program</h2>
-            <p className="subtitle fw-bold fst-italic">A Journey of Heritage, Adventure, and Cultural Immersion</p>
-            <p className="time"><span className="fw-bold">Days: </span>10 Days <span className="fw-bold ms-2">Country: </span>INDIA</p>
-            <div className="itineraray-desc">
-              Embark on an extraordinary 10-day journey through Rajasthan, a land where history comes alive through majestic forts, colorful bazaars, and golden deserts.
+          {indiaItineraries.map((it, idx) => (
+            <div key={it.id || idx} className="itinerary-card text-center position-relative">
+              <img 
+                className="position-absolute itineraray-img" 
+                src={it.img || '/gallery/india/43.png'} 
+                alt={it.title} 
+                onError={(e) => { e.target.src = '/gallery/india/43.png'; }}
+              />
+              <h2 className="text-uppercase fw-bold">{it.title}</h2>
+              {it.subtitle && (
+                <p className="subtitle fw-bold fst-italic">{it.subtitle}</p>
+              )}
+              <p className="time">
+                <span className="fw-bold">Days: </span>{it.days || '10 Days'} 
+                <span className="fw-bold ms-2">Country: </span>{it.country || 'INDIA'}
+              </p>
+              <div className="itineraray-desc" style={{ whiteSpace: 'pre-line' }}>
+                {it.desc}
+              </div>
+              <Link to={it.link || '/contact'} className="btn-link text-uppercase">View Itinerary</Link>
             </div>
-            <Link to="/rajasthan" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
-
-          {/* Card 2 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/india/44.png" 
-              alt="Artistic Immersion" 
-              onError={(e) => { e.target.src = 'gallery/india/44.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">Artistic Immersion</h2>
-            <p className="subtitle fw-bold fst-italic">Artistic Immersion and Workshops</p>
-            <p className="time"><span className="fw-bold">Days: </span>08 Days <span className="fw-bold ms-2">Country: </span>INDIA</p>
-            <div className="itineraray-desc">
-              Embark on an extraordinary 8-day expedition through the heart of India, where art, heritage, and nature come together to create an immersive experience like no other.
-            </div>
-            <Link to="/artistic-immersion" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
-
-          {/* Card 3 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/india/45.png" 
-              alt="North India Photo Program" 
-              onError={(e) => { e.target.src = 'gallery/india/45.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">North India Photo Program</h2>
-            <p className="subtitle fw-bold fst-italic">Varanasi, Taj Mahal & Desert Vistas</p>
-            <p className="time"><span className="fw-bold">Days: </span>10 Days <span className="fw-bold ms-2">Country: </span>INDIA</p>
-            <div className="itineraray-desc">
-              Capture the raw spirit of North India with professional photographer mentorship, from Ganges dawn shoots to timeless architectural icons.
-            </div>
-            <Link to="/north-india-photo-program" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
-
-          {/* Card 4 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/india/46.png" 
-              alt="Himalayan Photo Expedition" 
-              onError={(e) => { e.target.src = 'gallery/india/46.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">Himalayan Photo Expedition</h2>
-            <p className="subtitle fw-bold fst-italic">High Mountain Passes & Monasteries</p>
-            <p className="time"><span className="fw-bold">Days: </span>14 Days <span className="fw-bold ms-2">Country: </span>INDIA</p>
-            <div className="itineraray-desc">
-              An epic photography journey across high mountain passes, turquoise alpine lakes like Pangong Tso, and ancient cliffside Buddhist monasteries.
-            </div>
-            <Link to="/himalayan-photo-expedition" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
+          ))}
         </div>
       </section>
 

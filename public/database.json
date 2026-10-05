@@ -1,0 +1,341 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "exportedAt": "2026-10-03T13:17:00.000Z",
+    "appName": "Experiential Pathways Portal",
+    "description": "Central database file containing hero video, team roster, destination itineraries, and contact information."
+  },
+  "hero": {
+    "videoUrl": "https://experientialpathways.com/assets/india%20video-BqUeY7-T.mp4",
+    "poster": "/gallery/home-page/23_1.png",
+    "fallbackUrls": [
+      "https://experientialpathways.com/assets/nepalvideo_compress-BKG0amqc.mp4",
+      "https://experientialpathways.com/assets/bhutan_compress-CccLzWC4.mp4",
+      "/assets/india video-BqUeY7-T.mp4"
+    ],
+    "headlineLine1": "EXPERIENTIAL LEARNING FOR",
+    "headlineAccent": "NOTEWORTHY",
+    "headlineLine2": "STUDENT JOURNEYS",
+    "subheadline": "We design immersive cultural expeditions, gap year adventures, and service-learning pathways across India, Nepal, Bhutan, and Sri Lanka to inspire lifelong global leadership."
+  },
+  "teamMembers": [
+    {
+      "id": "team-1",
+      "name": "SUDARSHAN SINGH DEORA",
+      "title": "FOUNDER & DIRECTOR",
+      "img": "/gallery/team/Sudarshan-Deora.webp",
+      "bio": "Sudarshan believes the best lessons aren't found in textbooks, but on the open road. With a unique blend of a Post-Grad in Hospitality and an Education degree from JNV University, he launched Experiential Pathways to bridge the gap between rigorous academics and real-world adventure.",
+      "more": "His professional DNA mixes high-stakes adventure, logistics and storytelling, having served as a Location Manager for film productions and a manager for luxury inbound travel before stepping into student travel in 2007. This means every program he designs for South Asia is executed with safety, cinematic precision and premium care. Sudarshan’s true mission? Leadership through discovery. He is dedicated to creating innovative, hands-on programs that transform students into confident leaders. Off the Clock: You’ll find him perfecting his swing on the cricket pitch or recharging with some classic country music. His Vision: Turning South Asia's landscapes into a vibrant, living classroom for the next generation.",
+      "active": true
+    },
+    {
+      "id": "team-2",
+      "name": "DAVE DENNIS",
+      "title": "EXECUTIVE DIRECTOR, CORNERSTONE SAFETY GROUP",
+      "img": "/gallery/team/Daves.jpeg",
+      "bio": "Dave is co-founder and Executive Director of Cornerstone Safety Group, a membership-based risk management, medical, and mental health services company supporting travel and experiential education organizations globally with comprehensive risk management, medical protocols, and emergency response.",
+      "more": "With a master’s degree in risk management and 29 years experience in domestic and international operations, Dave has been the Vice President of Global Health and Safety at some of the industry’s largest companies, responded to thousands of incidents, and consulted for over 70 organizations.",
+      "active": true
+    },
+    {
+      "id": "team-3",
+      "name": "DIVYA SP",
+      "title": "CEO",
+      "img": "/gallery/team/Divya.webp",
+      "bio": "Divya doesn’t just run a travel company; she builds bridges. After honing her expertise in conference and event management, Divya followed her passion for youth development into the field. She has personally led student expeditions across Southeast Asia and the Pacific, from the temples of Burma to the highlands of Fiji.",
+      "more": "Teachers love Divya for her meticulous attention to detail (honed during her Master's in Tourism Marketing), but students love her for her \"bubbly\" energy and legendary cooking skills. Whether designing a community service project in the Himalayas or sharing a meal with students around a campfire, Divya’s presence ensures every program is safe, educational, and—above all—inspiring.",
+      "active": true
+    },
+    {
+      "id": "team-4",
+      "name": "DEEPTI",
+      "title": "BHUTAN HEAD - WOMEN EMPOWERMENT SPECIALIST",
+      "img": "/gallery/team/DV.webp",
+      "bio": "Deepti stands at the intersection of tradition and progress. With a lifelong dedication to preserving the world’s most pristine cultures, she leads our Bhutan division with a focus on \"Gross National Happiness\" in practice. Deepti’s mission is to ensure that student travel isn't just a visit, but a meaningful contribution to the Kingdom.",
+      "more": "By championing sustainable and responsible travel practices, she ensures that every expedition supports local livelihoods. Deepti is particularly passionate about female empowerment, intentionally designing programs that generate employment for local women and artisans. For teachers, Deepti is a vital link to the authentic heart of Bhutan.",
+      "active": true
+    },
+    {
+      "id": "team-5",
+      "name": "KISHAN SINGH",
+      "title": "GROUPS MANAGER",
+      "img": "/gallery/team/Karan-S.webp",
+      "bio": "Kishan brings a unique blend of international business acumen and a deep-rooted passion for global exploration to the Experiential Pathways team. Originally from the historic \"Blue City\" of Jodhpur, Rajasthan, Kishan’s professional journey took him to Australia for Hospitality Management and the UK for his MBA. This global academic foundation allows him to manage complex group logistics with corporate precision and a world-class service standard.",
+      "more": "Having led and managed programs across India, Nepal, Tanzania, and the Balkans, Kishan is an expert in navigating diverse cultural landscapes. He is particularly dedicated to fostering intellectual growth in students, often leading discussions on global critical issues and sustainable solutions. For Kishan, travel is the ultimate tool for solving the challenges of tomorrow.",
+      "active": true
+    },
+    {
+      "id": "team-6",
+      "name": "KOMAL PATEL",
+      "title": "PROGRAM LEADER SOUTH ASIA",
+      "img": "/gallery/team/Komal.webp",
+      "bio": "Komal is a specialist in outdoor education, bringing a rigorous academic approach to the field through the lens of experiential learning. With six years of experience as an Outdoor Faculty member at the prestigious TA Pai Management Institute (TAPMI), she excels at designing programs that bridge the gap between physical adventure and cognitive development.",
+      "more": "Her technical expertise is backed by professional certifications in Mountaineering, Skiing, and Experiential Learning Pedagogy. As a certified Wilderness First Responder, Komal ensures that safety is the foundation of every expedition. Having worked extensively with both top-tier schools and corporate sectors across South Asia, she is a master at facilitating leadership and teamwork in the great outdoors.",
+      "active": true
+    },
+    {
+      "id": "team-7",
+      "name": "ABHIMANYU SINGH BHATI",
+      "title": "PROGRAM LEADER SOUTH ASIA",
+      "img": "/gallery/team/Abhimanyu-Singh-Bhati.webp",
+      "bio": "Abhimanyu is a true educator at heart. When he isn’t leading student programs, he is training young professionals at his own Management Academy. He believes that travel is the ultimate classroom and loves engaging students in discussions about local art, history, and culture.",
+      "more": "Whether he’s debating a football match or navigating a remote cultural site, Abhimanyu’s energy and commitment to safety (as a NOLS-certified Wilderness First Responder) make him an invaluable leader for any student expedition.",
+      "active": true
+    },
+    {
+      "id": "team-8",
+      "name": "SHIVA SHARAN THAPA",
+      "title": "PROGRAM LEADER SOUTH ASIA",
+      "img": "/gallery/team/Shiv Sharan thapa_edited.webp",
+      "bio": "If there is one person who embodies the warmth of Himalayan hospitality, it is Shiva. Hailing from a beautiful village just outside Kathmandu, Shiva has spent more than a decade and a half sharing the beauty of his homeland with travelers. He lives by a simple but powerful belief: we can learn something valuable from everyone we meet.",
+      "more": "Teachers and students alike are drawn to Shiva’s social nature and his incredible talent as a Master Chef. Whether he is teaching a group how to fold the perfect momo or sharing stories about his life in Rayale, Shiva makes every student feel at home. As a father himself, he is passionate about building a better future through responsible travel and community service, making him an inspiring role model for any student group.",
+      "active": true
+    },
+    {
+      "id": "team-9",
+      "name": "VINOD KUMAR",
+      "title": "PROGRAM LEADER SOUTH ASIA",
+      "img": "/gallery/team/Vinod Kumar.webp",
+      "bio": "In the world of outdoor education, Vinod is a force of nature. Known affectionately by students and colleagues as \"Yeti,\" he is legendary for his tireless energy and his ability to inspire groups in any environment. Whether he is leading a trek in Nepal or a cultural program in the Balkans, Vinod brings a level of enthusiasm that is truly infectious.",
+      "more": "Vinod isn't just an adventurer; he is a highly qualified teacher who has spent years as a Guest Instructor at India’s top mountaineering institutes (NIM and DMAS). Teachers appreciate his deep knowledge of IB program standards and his \"safety-first\" mindset. Students love him for his endless energy and his fascinating stories about the culture and history of India and Nepal. When you travel with Vinod, you aren't just taking a trip—you are learning from one of the most seasoned veterans in the industry.",
+      "active": true
+    },
+    {
+      "id": "team-10",
+      "name": "HEMANT KUMAR SHAHI",
+      "title": "PROGRAM LEADER SOUTH ASIA",
+      "img": "/gallery/team/HemantKumarShahi",
+      "bio": "Born and raised in the shadow of the Dhauladhar Range in Dharamshala—the spiritual home of H.H. the Dalai Lama—Manu’s connection to the Himalayas is lifelong. After earning a degree in Geography in 1992, his academic curiosity evolved into a physical pursuit of the wilderness.",
+      "more": "Certified in both Basic and Advanced Mountaineering (1993) and Water Sports (1994), Manu has spent over three decades navigating the rugged landscapes of Northern India and Nepal. Since joining the Inbound family in 2005, he has specialized in leading cultural immersion and service-learning programs.",
+      "active": true
+    },
+    {
+      "id": "team-11",
+      "name": "ANUJ",
+      "title": "HEAD LOGISTICS - BHUTAN & SRI LANKA",
+      "img": "/gallery/team/AV-image.webp",
+      "bio": "Anuj believes that the best classroom has no walls. As our Sri Lanka Head, he brings a fun-loving energy and a wealth of local knowledge to every itinerary he crafts. Anuj doesn't just plan trips; he creates unforgettable memories by diving deep into what makes Sri Lanka special—from its ancient ruins to its hidden culinary gems.",
+      "more": "His flair for storytelling and his \"unforgettable memory\" approach make him a favorite among educators who want their students to truly engage with a destination. Whether organizing a trek through a tea plantation or a cultural exchange in a local village, Anuj’s enthusiasm is infectious, ensuring every student returns home with a new perspective and a passion for global exploration.",
+      "active": true
+    },
+    {
+      "id": "team-12",
+      "name": "YUVRAJ SINGH",
+      "title": "SOCIAL MEDIA MANAGER",
+      "img": "/gallery/team/element  - 2026-04-17T143426.822.png",
+      "bio": "Meet Yuvraj Singh, the Social Media Manager for Experiential Pathways, with a talent for crafting engaging content and growing vibrant online communities.",
+      "more": "With a passion for storytelling and digital marketing, Yuvraj expertly manages social media platforms, showcasing unique travel experiences, student adventures, Teen travel, Student Travel Programs and immersive learning journeys. Follow along as Yuvraj brings the world of experiential learning to life, connecting students to transformative opportunities across South Asia and beyond!",
+      "active": true
+    }
+  ],
+  "destinations": {
+    "india": {
+      "name": "India",
+      "tagline": "A Land of Boundless Diversity, Ancient Heritage & Living Traditions",
+      "heroImg": "/gallery/india/24.png",
+      "overview": "India is a captivating mosaic of ancient traditions, diverse ecosystems, and vibrant modern innovation. From royal fortresses of Rajasthan to serene foothills of the Himalayas, students encounter hands-on service learning, artisan immersion, and cultural exchange.",
+      "itineraries": [
+        {
+          "id": "india-it-1",
+          "title": "Rajasthan Program",
+          "subtitle": "A Journey of Heritage, Adventure, and Cultural Immersion",
+          "days": "10 Days",
+          "country": "INDIA",
+          "img": "/gallery/india/43.png",
+          "desc": "Embark on an extraordinary 10-day journey through Rajasthan, a land where history comes alive through majestic forts, colorful bazaars, and golden deserts.",
+          "link": "/rajasthan"
+        },
+        {
+          "id": "india-it-2",
+          "title": "Artistic Immersion",
+          "subtitle": "Artistic Immersion and Workshops",
+          "days": "08 Days",
+          "country": "INDIA",
+          "img": "/gallery/india/44.png",
+          "desc": "Embark on an extraordinary 8-day expedition through the heart of India, where art, heritage, and nature come together to create an immersive experience like no other.",
+          "link": "/artistic-immersion"
+        },
+        {
+          "id": "india-it-3",
+          "title": "North India Photo Program",
+          "subtitle": "Varanasi, Taj Mahal & Desert Vistas",
+          "days": "10 Days",
+          "country": "INDIA",
+          "img": "/gallery/india/45.png",
+          "desc": "Capture the raw spirit of North India with professional photographer mentorship, from Ganges dawn shoots to timeless architectural icons.",
+          "link": "/north-india-photo-program"
+        },
+        {
+          "id": "india-it-4",
+          "title": "Himalayan Photo Expedition",
+          "subtitle": "High Mountain Passes & Monasteries",
+          "days": "14 Days",
+          "country": "INDIA",
+          "img": "/gallery/india/46.png",
+          "desc": "An epic photography journey across high mountain passes, turquoise alpine lakes like Pangong Tso, and ancient cliffside Buddhist monasteries.",
+          "link": "/himalayan-photo-expedition"
+        }
+      ]
+    },
+    "nepal": {
+      "name": "Nepal",
+      "tagline": "Roof of the World, Spiritual Sanctuary & Wilderness Adventure",
+      "heroImg": "/gallery/home-page/23_1.png",
+      "overview": "Nestled beneath the majestic Annapurna and Everest ranges, Nepal offers profound opportunities for community service, river rafting, ecological preservation, and Sherpa cultural immersion.",
+      "itineraries": [
+        {
+          "id": "nepal-it-1",
+          "title": "Yeti Explorers! (Poon Hill Trek)",
+          "subtitle": "Yeti Explorers!",
+          "days": "11 Days",
+          "country": "NEPAL",
+          "img": "/gallery/nepal/4.png",
+          "desc": "Learn about Nepal\nEnjoy White water Rafting\nLearn about Pokharan Culture\nHike through Forests\nTrek to Poon hill.",
+          "link": "/poon-hill-trek"
+        },
+        {
+          "id": "nepal-it-2",
+          "title": "Nepal Village Life & Homestay",
+          "subtitle": "Nepal Village Life",
+          "days": "10 Days",
+          "country": "NEPAL",
+          "img": "/gallery/nepal/5.png",
+          "desc": "Learn about Nepal\nEnjoy White water Rafting\nParticipate in Community Work\nHike through Forests\nLearn Nepali Culture.",
+          "link": "/nepali-village-life"
+        },
+        {
+          "id": "nepal-it-3",
+          "title": "Nepal: Trek, Raft & Service",
+          "subtitle": "Community Service & Mountain Expedition",
+          "days": "12 Days",
+          "country": "NEPAL",
+          "img": "/gallery/home-page/23_1.png",
+          "desc": "A thrilling tri-element expedition combining white-water rafting on the Trishuli River, Annapurna trekking, and school building community service.",
+          "link": "/nepal-trek-raft-service"
+        },
+        {
+          "id": "nepal-it-4",
+          "title": "Nepal Discovery Service",
+          "subtitle": "Educational Outreach & Cultural Exchange",
+          "days": "12 Days",
+          "country": "NEPAL",
+          "img": "/gallery/nepal/3.png",
+          "desc": "Engage with local schools, teach conversational English and arts, explore Buddhist stupas in Kathmandu, and immerse in traditional homestays.",
+          "link": "/nepal-discovery-service"
+        }
+      ]
+    },
+    "bhutan": {
+      "name": "Bhutan",
+      "tagline": "The Kingdom of Gross National Happiness & Sacred Peaks",
+      "heroImg": "/gallery/india/24.png",
+      "overview": "Bhutan measures progress not by gross domestic product, but by Gross National Happiness. Explore ancient cliffside dzongs, intact Buddhist monasteries, and pristine carbon-negative forests.",
+      "itineraries": [
+        {
+          "id": "bhutan-it-1",
+          "title": "Bhutan Cultural Adventure",
+          "subtitle": "Living Traditions & Mountain Fortresses",
+          "days": "10 Days",
+          "country": "BHUTAN",
+          "img": "/gallery/india/43.png",
+          "desc": "Learn about Bhutanese Culture\nVisit sacred Dzongs & Monasteries\nParticipate in Community Learning\nHike through pristine Himalayan Valleys\nExperience Traditional Archery & Arts",
+          "link": "/bhutan-cultural-adventure"
+        },
+        {
+          "id": "bhutan-it-2",
+          "title": "Tiger's Nest Discovery (Paro Taktsang)",
+          "subtitle": "Sacred Cliffs & Monastic Heritage",
+          "days": "08 Days",
+          "country": "BHUTAN",
+          "img": "/gallery/india/44.png",
+          "desc": "Ascend to cliffside Paro Taktsang\nExplore ancient valley trails & wildlife\nEngage with Buddhist scholars & monks\nLearn traditional thangka arts",
+          "link": "/bhutan-cultural-adventure"
+        },
+        {
+          "id": "bhutan-it-3",
+          "title": "Bhutan: Himalayan Harmony",
+          "subtitle": "Philosophy of Gross National Happiness",
+          "days": "12 Days",
+          "country": "BHUTAN",
+          "img": "/gallery/about-page/transform/cross-2.png",
+          "desc": "Discover the cultural philosophies of Bhutan, hiking to sacred monasteries and interacting with Buddhist monks and rural scholars.",
+          "link": "/bhutan-himalayan-harmony"
+        }
+      ]
+    },
+    "srilanka": {
+      "name": "Sri Lanka",
+      "tagline": "The Pearl of the Indian Ocean: Wildlife, Waves & Heritage",
+      "heroImg": "/gallery/about-page/transform/cross-1.png",
+      "overview": "From mist-covered central tea plantations and ancient rock fortresses like Sigiriya to wildlife safaris and coastal conservation, Sri Lanka is a tropical classroom of wonder.",
+      "itineraries": [
+        {
+          "id": "srilanka-it-1",
+          "title": "WILDLIFE & WAVES",
+          "subtitle": "Coastal Ecology & Conservation",
+          "days": "08 Days",
+          "country": "SRI LANKA",
+          "img": "/gallery/india/43.png",
+          "desc": "Encounter Wild Elephants in Minneriya\nWhale Watching expedition off Mirissa\nTurtle Conservation & Rehabilitation\nSurf lessons & coastal dune preservation\nGalle Fort heritage exploration",
+          "link": "/sri-lanka-wildlife-waves"
+        },
+        {
+          "id": "srilanka-it-2",
+          "title": "COMMUNITY & COASTLINE",
+          "subtitle": "Village School & Marine Ecology",
+          "days": "10 Days",
+          "country": "SRI LANKA",
+          "img": "/gallery/india/44.png",
+          "desc": "Rural school teaching & renovation\nMangrove reforestation along the south coast\nSea turtle nesting protection\nTraditional cinnamon harvesting & mask making",
+          "link": "/sri-lanka-community-coastline"
+        },
+        {
+          "id": "srilanka-it-3",
+          "title": "An Immersive Sri Lanka Experience",
+          "subtitle": "Cultural Triangle & Hill Country",
+          "days": "12 Days",
+          "country": "SRI LANKA",
+          "img": "/gallery/about-page/31.png",
+          "desc": "Journey from ancient Anuradhapura temples to lush Kandy hill stations and colonial Galle Fort.",
+          "link": "/an-immersive-sri-lanka-experience"
+        }
+      ]
+    }
+  },
+  "contact": {
+    "phone": "09257001999",
+    "phoneFormatted": "+91 92570 01999",
+    "email": "info@experientialpathways.com",
+    "whatsapp": "919257001999",
+    "address": "Experiential Pathways, South Asia Expeditions HQ, Rajasthan & Delhi, India",
+    "workingHours": "Monday – Saturday: 9:00 AM – 7:00 PM IST",
+    "scriptUrl": "https://script.google.com/macros/s/AKfycbw4S5yXbHl1kMM1qxMzPKygriXzxvWHWamqEbEXIrHAxQCjI88WppBixOnXdyp9clDs/exec",
+    "social": {
+      "instagram": "https://instagram.com/experientialpathways",
+      "facebook": "https://facebook.com/experientialpathways",
+      "linkedin": "https://linkedin.com/company/experientialpathways",
+      "youtube": "https://youtube.com",
+      "whatsapp": "https://wa.me/919257001999"
+    },
+    "inquiries": [
+      {
+        "id": "inq-1",
+        "fullName": "Sarah Jenkins",
+        "email": "sarah.jenkins@oakridgeschool.edu",
+        "subject": "Inquiry for School Group Expedition - India & Nepal (Spring 2027)",
+        "message": "Hello, we are planning a 12-day experiential learning trip for 24 grade-10 students focusing on community service and cultural immersion. Could you send us sample itineraries and safety protocols?",
+        "createdAt": "2026-10-02T10:15:00Z",
+        "status": "new"
+      },
+      {
+        "id": "inq-2",
+        "fullName": "Rajesh Mehta",
+        "email": "rmehta@globaltravelpartners.com",
+        "subject": "Custom Bhutan & Sri Lanka Youth Trek Partnership",
+        "message": "Interested in partnering with Experiential Pathways for our annual university student leadership journeys.",
+        "createdAt": "2026-10-01T15:30:00Z",
+        "status": "read"
+      }
+    ]
+  }
+}

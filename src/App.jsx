@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { AdminDataProvider } from './context/AdminDataContext';
+import AdminLayout from './admin/AdminLayout';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -60,18 +62,24 @@ function HtmlExtensionRedirector() {
   return null;
 }
 
-export default function App() {
-  return (
-    <BrowserRouter>
-      <HtmlExtensionRedirector />
-      <div className="app-wrapper">
-        <Navbar />
+function AppLayout() {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith('/admin');
 
-        <Routes>
-          {/* Home */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/index.html" element={<HomePage />} />
-          <Route path="/home.html" element={<HomePage />} />
+  return (
+    <div className="app-wrapper">
+      {!isAdmin && <Navbar />}
+
+      <Routes>
+        {/* Admin Panel */}
+        <Route path="/admin" element={<AdminLayout />} />
+        <Route path="/admin/*" element={<AdminLayout />} />
+        <Route path="/admin.html" element={<Navigate to="/admin" replace />} />
+
+        {/* Home */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/index.html" element={<HomePage />} />
+        <Route path="/home.html" element={<HomePage />} />
 
           {/* About Us Subpages */}
           <Route path="/about" element={<AboutPage />} />
@@ -197,8 +205,18 @@ export default function App() {
           <Route path="*" element={<HomePage />} />
         </Routes>
 
-        <Footer />
+        {!isAdmin && <Footer />}
       </div>
-    </BrowserRouter>
+  );
+}
+
+export default function App() {
+  return (
+    <AdminDataProvider>
+      <BrowserRouter>
+        <HtmlExtensionRedirector />
+        <AppLayout />
+      </BrowserRouter>
+    </AdminDataProvider>
   );
 }

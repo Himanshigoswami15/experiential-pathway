@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAdminData } from '../context/AdminDataContext';
 
 const teamMembers = [
   {
@@ -88,6 +89,11 @@ const teamMembers = [
 ];
 
 export default function TeamPage() {
+  const { data } = useAdminData();
+  const members = (data?.teamMembers && data.teamMembers.length > 0)
+    ? data.teamMembers.filter(m => m.active !== false)
+    : teamMembers;
+
   const [expanded, setExpanded] = useState({});
 
   const toggleBio = (idx) => {
@@ -200,7 +206,7 @@ export default function TeamPage() {
               margin: '0 auto'
             }}
           >
-            {teamMembers.map((member, idx) => {
+            {members.map((member, idx) => {
               const isExpanded = !!expanded[idx];
               return (
                 <div

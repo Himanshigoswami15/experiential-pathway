@@ -1,16 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAdminData } from '../context/AdminDataContext';
 
-/**
- * Footer
- * 1:1 reproduction of the reference screenshot and experientialpathways.com:
- * - Solid olive green background (#756f4f)
- * - Left column: White rectangular logo card + narrative tagline
- * - Right top: Horizontal quick links ("SCHOOL & GROUP TRIP", "Health & Safety", "Global Gap Year") + White "CONNECT WITH US" button
- * - Right columns: 3 organized columns ("About Us", "Destination", "Explore")
- * - Bottom row: "© 2026 Experiential Pathways. All Rights Reserved." + social media icon links
- */
 export default function Footer() {
+  const { data } = useAdminData();
+  const contact = data?.contact || {};
+  const whatsappNumber = contact.whatsapp || '919257001999';
+  const social = contact.social || {};
   return (
     <footer 
       className="ep-site-footer"
@@ -342,17 +338,40 @@ export default function Footer() {
             gap: '1rem'
           }}
         >
-          {/* Copyright */}
-          <p 
-            style={{
-              fontFamily: "Georgia, 'Times New Roman', serif",
-              fontSize: 'clamp(0.85rem, 1vw, 0.94rem)',
-              color: 'rgba(255, 255, 255, 0.85)',
-              margin: 0
-            }}
-          >
-            © 2026 Experiential Pathways. All Rights Reserved.
-          </p>
+          {/* Copyright & Admin Link */}
+          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+            <p 
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontSize: 'clamp(0.85rem, 1vw, 0.95rem)',
+                color: 'rgba(255, 255, 255, 0.85)',
+                margin: 0
+              }}
+            >
+              © 2026 Experiential Pathways. All Rights Reserved.
+            </p>
+            <Link
+              to="/admin"
+              title="Administrator Portal"
+              style={{
+                color: 'rgba(255, 255, 255, 0.45)',
+                textDecoration: 'none',
+                fontSize: '0.8rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                marginLeft: '10px',
+                padding: '2px 8px',
+                borderRadius: '4px',
+                background: 'rgba(0, 0, 0, 0.15)',
+                transition: 'color 0.2s ease'
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = '#ffffff'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255, 255, 255, 0.45)'; }}
+            >
+              <i className="bi bi-shield-lock-fill"></i> Admin
+            </Link>
+          </div>
 
           {/* Social Icons */}
           <div 
@@ -363,11 +382,11 @@ export default function Footer() {
             }}
           >
             {[
-              { icon: 'bi-facebook', href: 'https://facebook.com/experiential.pathways/', label: 'Facebook' },
-              { icon: 'bi-instagram', href: 'https://www.instagram.com/experiential.pathways/', label: 'Instagram' },
-              { icon: 'bi-linkedin', href: 'https://linkedin.com/in/experiential-pathways', label: 'LinkedIn' },
-              { icon: 'bi-whatsapp', href: 'https://wa.me/09257001999', label: 'WhatsApp' }
-            ].map((social, idx) => (
+              { icon: 'bi-facebook', href: social.facebook || 'https://facebook.com/experiential.pathways/', label: 'Facebook' },
+              { icon: 'bi-instagram', href: social.instagram || 'https://www.instagram.com/experiential.pathways/', label: 'Instagram' },
+              { icon: 'bi-linkedin', href: social.linkedin || 'https://linkedin.com/in/experiential-pathways', label: 'LinkedIn' },
+              { icon: 'bi-whatsapp', href: `https://wa.me/${whatsappNumber}`, label: 'WhatsApp' }
+            ].map((soc, idx) => (
               <a 
                 key={idx}
                 href={social.href}

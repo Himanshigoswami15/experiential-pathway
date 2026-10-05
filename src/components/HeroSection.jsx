@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAdminData } from '../context/AdminDataContext';
 
 /**
  * HeroSection Component
@@ -9,6 +10,11 @@ import { Link } from 'react-router-dom';
  * - High-impact 3-line headline with bold, high-contrast NOTEWORTHY accent color that suits the olive palette perfectly
  */
 export default function HeroSection() {
+  const { data } = useAdminData();
+  const hero = data?.hero || {};
+  const currentVideoUrl = hero.videoUrl || 'https://experientialpathways.com/assets/india%20video-BqUeY7-T.mp4';
+  const currentPoster = hero.poster || '/gallery/home-page/23_1.png';
+
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
@@ -100,12 +106,13 @@ export default function HeroSection() {
         >
           {/* Video covering 100% of the frame with zoom to crop out any borders/torn paper */}
           <video
+            key={currentVideoUrl}
             ref={videoRef}
             autoPlay
             loop
             muted={isMuted}
             playsInline
-            poster="/gallery/home-page/23_1.png"
+            poster={currentPoster}
             style={{
               position: 'absolute',
               top: 0,
@@ -118,10 +125,10 @@ export default function HeroSection() {
               display: 'block'
             }}
           >
-            <source src="https://experientialpathways.com/assets/india%20video-BqUeY7-T.mp4" type="video/mp4" />
-            <source src="https://experientialpathways.com/assets/nepalvideo_compress-BKG0amqc.mp4" type="video/mp4" />
-            <source src="https://experientialpathways.com/assets/bhutan_compress-CccLzWC4.mp4" type="video/mp4" />
-            <source src="/assets/india video-BqUeY7-T.mp4" type="video/mp4" />
+            <source src={currentVideoUrl} type="video/mp4" />
+            {(hero.fallbackUrls || []).map((fUrl, idx) => (
+              <source key={idx} src={fUrl} type="video/mp4" />
+            ))}
             Your browser does not support video playback.
           </video>
 
@@ -207,17 +214,17 @@ export default function HeroSection() {
             margin: 0
           }}>
             <span style={{ display: 'block', color: '#3a3400' }}>
-              EXPERIENTIAL LEARNING FOR
+              {hero.headlineLine1 || 'EXPERIENTIAL LEARNING FOR'}
             </span>
             <span style={{ 
               display: 'block', 
               color: '#3a3400', 
               letterSpacing: '-0.01em'
             }}>
-              NOTEWORTHY
+              {hero.headlineAccent || 'NOTEWORTHY'}
             </span>
             <span style={{ display: 'block', color: '#3a3400' }}>
-              STUDENT JOURNEYS
+              {hero.headlineLine2 || 'STUDENT JOURNEYS'}
             </span>
           </h1>
         </div>
@@ -232,7 +239,7 @@ export default function HeroSection() {
           margin: '0 auto clamp(1.4rem, 2.5vw, 2.2rem) auto',
           fontWeight: 500
         }}>
-          We design immersive cultural expeditions, gap year adventures, and service-learning pathways across India, Nepal, Bhutan, and Sri Lanka to inspire lifelong global leadership.
+          {hero.subheadline || 'We design immersive cultural expeditions, gap year adventures, and service-learning pathways across India, Nepal, Bhutan, and Sri Lanka to inspire lifelong global leadership.'}
         </p>
 
         {/* 4. Action CTAs */}

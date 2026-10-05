@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useAdminData } from '../context/AdminDataContext';
 import './ContactPage.css';
 
 export default function ContactPage() {
+  const { data, addInquiry } = useAdminData();
+  const contact = data?.contact || {};
+  const phone = contact.phone || '09257001999';
+  const phoneFormatted = contact.phoneFormatted || phone;
+  const email = contact.email || 'info@experientialpathways.com';
+  const whatsapp = contact.whatsapp || '919257001999';
+  const scriptUrl = contact.scriptUrl || 'https://script.google.com/macros/s/AKfycbw4S5yXbHl1kMM1qxMzPKygriXzxvWHWamqEbEXIrHAxQCjI88WppBixOnXdyp9clDs/exec';
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw4S5yXbHl1kMM1qxMzPKygriXzxvWHWamqEbEXIrHAxQCjI88WppBixOnXdyp9clDs/exec';
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -22,22 +29,37 @@ export default function ContactPage() {
     setSubmitting(true);
 
     try {
-      const params = new URLSearchParams();
-      for (const key in formData) {
-        params.append(key, formData[key]);
+      // 1. Save locally to Admin Panel inquiries inbox
+      if (addInquiry) {
+        addInquiry({
+          fullName: formData.fullName,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        });
       }
-      params.append('sheetName', 'Sheet2');
 
-      await fetch(CONTACT_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        cache: 'no-cache',
-        body: params
-      });
+      // 2. Submit to Google Apps Script if URL provided
+      if (scriptUrl) {
+        const params = new URLSearchParams();
+        for (const key in formData) {
+          params.append(key, formData[key]);
+        }
+        params.append('sheetName', 'Sheet2');
+
+        await fetch(scriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          cache: 'no-cache',
+          body: params
+        });
+      }
+
       setSubmitted(true);
     } catch (err) {
       console.error('Contact submit error:', err);
-      alert('There was an issue submitting your message. Please try again later.');
+      // Even if network fails, we recorded the inquiry in the admin context
+      setSubmitted(true);
     } finally {
       setSubmitting(false);
     }
@@ -68,31 +90,31 @@ export default function ContactPage() {
         </p>
 
         <div className="contact-cards position-relative">
-          <a href="tel:09257001999" className="contact-card">
+          <a href={`tel:${phone}`} className="contact-card">
             <img 
               src="/gallery/contact/113.png" 
               alt="Phone"
               onError={(e) => { e.target.src = 'gallery/contact/113.png'; }}
             />
-            <p className="fw-bold">09257001999</p>
+            <p className="fw-bold">{phoneFormatted || phone}</p>
           </a>
 
-          <a href="mailto:info@experientialpathways.com" className="contact-card">
+          <a href={`mailto:${email}`} className="contact-card">
             <img 
               src="/gallery/contact/114.png" 
               alt="Email"
               onError={(e) => { e.target.src = 'gallery/contact/114.png'; }}
             />
-            <p className="fw-bold">info@experientialpathways.com</p>
+            <p className="fw-bold">{email}</p>
           </a>
 
-          <a href="https://wa.me/919257001999" target="_blank" rel="noopener noreferrer" className="contact-card">
+          <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener noreferrer" className="contact-card">
             <img 
               src="/gallery/contact/115.png" 
               alt="WhatsApp / Phone"
               onError={(e) => { e.target.src = 'gallery/contact/115.png'; }}
             />
-            <p className="fw-bold">09257001999</p>
+            <p className="fw-bold">{phoneFormatted || phone}</p>
           </a>
 
           <img 

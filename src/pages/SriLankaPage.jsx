@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAdminData } from '../context/AdminDataContext';
 import FaqSection from '../components/FaqSection';
 import './IndiaPage.css';
 
 export default function SriLankaPage() {
+  const { data } = useAdminData();
+  const sriLankaItineraries = data?.destinations?.srilanka?.itineraries || [];
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -104,89 +108,28 @@ export default function SriLankaPage() {
       {/* ===== Itineraries Section ===== */}
       <section className="itinerarys pt-4">
         <div className="itinerary-cards d-flex flex-wrap justify-content-center align-items-stretch gap-4">
-          {/* Card 1 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/india/43.png" 
-              alt="Wildlife & Waves" 
-              onError={(e) => { e.target.src = 'gallery/india/43.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">WILDLIFE &amp; WAVES</h2>
-            <p className="subtitle fw-bold fst-italic">Coastal Ecology &amp; Conservation</p>
-            <p className="time"><span className="fw-bold">Days: </span>08 Days <span className="fw-bold ms-2">Country: </span>SRI LANKA</p>
-            <div className="itineraray-desc">
-              Encounter Wild Elephants in Minneriya
-              <br />Whale Watching expedition off Mirissa
-              <br />Turtle Conservation &amp; Rehabilitation
-              <br />Surf lessons &amp; coastal dune preservation
-              <br />Galle Fort heritage exploration
+          {sriLankaItineraries.map((it, idx) => (
+            <div key={it.id || idx} className="itinerary-card text-center position-relative">
+              <img 
+                className="position-absolute itineraray-img" 
+                src={it.img || '/gallery/india/43.png'} 
+                alt={it.title} 
+                onError={(e) => { e.target.src = '/gallery/india/43.png'; }}
+              />
+              <h2 className="text-uppercase fw-bold">{it.title}</h2>
+              {it.subtitle && (
+                <p className="subtitle fw-bold fst-italic">{it.subtitle}</p>
+              )}
+              <p className="time">
+                <span className="fw-bold">Days: </span>{it.days || '08 Days'} 
+                <span className="fw-bold ms-2">Country: </span>{it.country || 'SRI LANKA'}
+              </p>
+              <div className="itineraray-desc" style={{ whiteSpace: 'pre-line' }}>
+                {it.desc}
+              </div>
+              <Link to={it.link || '/contact'} className="btn-link text-uppercase">View Itinerary</Link>
             </div>
-            <Link to="/sri-lanka-wildlife-waves.html" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
-
-          {/* Card 2 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/india/44.png" 
-              alt="Community & Coastline" 
-              onError={(e) => { e.target.src = 'gallery/india/44.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">COMMUNITY &amp; COASTLINE</h2>
-            <p className="subtitle fw-bold fst-italic">Village School &amp; Marine Ecology</p>
-            <p className="time"><span className="fw-bold">Days: </span>10 Days <span className="fw-bold ms-2">Country: </span>SRI LANKA</p>
-            <div className="itineraray-desc">
-              Rural school teaching &amp; renovation
-              <br />Mangrove planting &amp; river restoration
-              <br />Kandy cultural dance &amp; Tooth Temple
-              <br />Tea plantation hike &amp; tea crafting
-              <br />Community homestay immersion
-            </div>
-            <Link to="/sri-lanka-community-coastline.html" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
-
-          {/* Card 3 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/india/45.png" 
-              alt="An Immersive Sri Lanka Experience" 
-              onError={(e) => { e.target.src = 'gallery/india/45.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">IMMERSIVE SRI LANKA</h2>
-            <p className="subtitle fw-bold fst-italic">Kingdoms to Tropical Coastlines</p>
-            <p className="time"><span className="fw-bold">Days: </span>12 Days <span className="fw-bold ms-2">Country: </span>SRI LANKA</p>
-            <div className="itineraray-desc">
-              Sigiriya Lion Rock Fortress climb
-              <br />Anuradhapura sacred ancient monuments
-              <br />Yala National Park leopard safari
-              <br />Scenic mountain train journey through Ella
-              <br />Traditional ayurvedic herbal workshops
-            </div>
-            <Link to="/an-immersive-sri-lanka-experience.html" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
-
-          {/* Card 4 */}
-          <div className="itinerary-card text-center position-relative">
-            <img 
-              className="position-absolute itineraray-img" 
-              src="/gallery/india/46.png" 
-              alt="Gems of Sri Lanka" 
-              onError={(e) => { e.target.src = 'gallery/india/46.png'; }}
-            />
-            <h2 className="text-uppercase fw-bold">GEMS OF SRI LANKA</h2>
-            <p className="subtitle fw-bold fst-italic">Geological &amp; Wilderness Wonders</p>
-            <p className="time"><span className="fw-bold">Days: </span>08 Days <span className="fw-bold ms-2">Country: </span>SRI LANKA</p>
-            <div className="itineraray-desc">
-              Visit ancient Ratnapura gem mines
-              <br />Sinharaja Rain Forest biosphere reserve
-              <br />Udawalawe elephant transit home
-              <br />Scenic southern coastline beaches
-              <br />Traditional stilt fishing experience
-            </div>
-            <Link to="/gems-of-sri-lanka.html" className="btn-link text-uppercase">View Itinerary</Link>
-          </div>
+          ))}
         </div>
       </section>
 
