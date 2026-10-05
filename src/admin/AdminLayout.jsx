@@ -91,9 +91,17 @@ export default function AdminLayout() {
             onError={(e) => { e.target.src = 'gallery/home-page/logo.png'; }}
           />
           <div className="adm-sidebar-brand-text">
-            <h2>Experiential</h2>
+            <h2>Experiential Pathways</h2>
             <span>Admin Console</span>
           </div>
+          <button
+            type="button"
+            className="adm-sidebar-close"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close navigation"
+          >
+            <i className="bi bi-x-lg"></i>
+          </button>
         </div>
 
         <ul className="adm-nav-list">
@@ -174,6 +182,15 @@ export default function AdminLayout() {
         </div>
       </aside>
 
+      {/* Mobile Sidebar Overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="adm-sidebar-backdrop"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Main Wrapper */}
       <div className="adm-main-wrap">
         {/* Top Navbar */}
@@ -181,13 +198,15 @@ export default function AdminLayout() {
           <div className="adm-topbar-left">
             <button
               type="button"
-              className="adm-btn adm-btn-secondary d-md-none"
+              className="adm-btn adm-btn-secondary adm-hamburger-btn"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation menu"
             >
               <i className="bi bi-list"></i>
             </button>
             <div className="adm-breadcrumb">
-              Portal / <strong>{navLabels[currentTab]}</strong>
+              <span className="adm-breadcrumb-root">Portal / </span>
+              <strong>{navLabels[currentTab]}</strong>
             </div>
           </div>
 
@@ -199,7 +218,7 @@ export default function AdminLayout() {
               className="adm-btn adm-btn-secondary adm-btn-sm"
               title="Preview public site in new tab"
             >
-              <i className="bi bi-box-arrow-up-right"></i> Live Site
+              <i className="bi bi-box-arrow-up-right"></i> <span className="adm-btn-text">Live Site</span>
             </a>
 
             <div style={{
