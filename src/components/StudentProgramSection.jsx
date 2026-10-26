@@ -173,6 +173,8 @@ export default function StudentProgramSection() {
                 <img 
                   src={tab.img} 
                   alt="" 
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: '50px',
                     height: '50px',
@@ -243,6 +245,8 @@ export default function StudentProgramSection() {
                   <img 
                     src={card.img} 
                     alt={card.title}
+                    loading="lazy"
+                    decoding="async"
                     style={{
                       width: '76px',
                       height: '76px',

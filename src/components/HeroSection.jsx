@@ -12,7 +12,7 @@ import { useAdminData } from '../context/AdminDataContext';
 export default function HeroSection() {
   const { data } = useAdminData();
   const hero = data?.hero || {};
-  const currentVideoUrl = hero.videoUrl || 'https://experientialpathways.com/assets/india%20video-BqUeY7-T.mp4';
+  const currentVideoUrl = hero.videoUrl || '/assets/india_hero_instant.mp4';
   const currentPoster = hero.poster || '/gallery/home-page/23_1.png';
 
   const [isPlaying, setIsPlaying] = useState(true);
@@ -23,8 +23,7 @@ export default function HeroSection() {
   const togglePlay = () => {
     if (!videoRef.current) return;
     if (videoRef.current.paused) {
-      videoRef.current.play().catch(() => {});
-      setIsPlaying(true);
+      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
     } else {
       videoRef.current.pause();
       setIsPlaying(false);
@@ -40,17 +39,36 @@ export default function HeroSection() {
     setIsMuted(newMuted);
   };
 
-  // Autoplay on mount
+  // Instant autoplay on mount & source change
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().then(() => {
-        setIsPlaying(true);
-      }).catch(() => {
-        setIsPlaying(false);
-      });
-    }
-  }, []);
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.defaultMuted = true;
+    video.muted = true;
+    setIsMuted(true);
+
+    const tryPlay = () => {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch((err) => {
+            console.warn('Hero video autoplay delayed:', err);
+            setIsPlaying(false);
+          });
+      }
+    };
+
+    tryPlay();
+    video.addEventListener('canplay', tryPlay, { once: true });
+    video.addEventListener('loadeddata', tryPlay, { once: true });
+
+    return () => {
+      video.removeEventListener('canplay', tryPlay);
+      video.removeEventListener('loadeddata', tryPlay);
+    };
+  }, [currentVideoUrl]);
 
   return (
     <section className="ep-hero-section" style={{
@@ -104,14 +122,16 @@ export default function HeroSection() {
             e.currentTarget.style.boxShadow = '0 24px 60px -10px rgba(58, 52, 0, 0.3)';
           }}
         >
-          {/* Video covering 100% of the frame with zoom to crop out any borders/torn paper */}
+          {/* Video covering 100% of the frame with smooth edge-to-edge cover */}
           <video
             key={currentVideoUrl}
             ref={videoRef}
+            src={currentVideoUrl}
             autoPlay
             loop
-            muted={isMuted}
+            muted
             playsInline
+            preload="auto"
             poster={currentPoster}
             style={{
               position: 'absolute',
@@ -120,7 +140,7 @@ export default function HeroSection() {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              transform: 'scale(1.25)',
+              transform: 'scale(1.36)',
               transformOrigin: 'center center',
               display: 'block'
             }}

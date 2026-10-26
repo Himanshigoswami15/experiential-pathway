@@ -62,6 +62,8 @@ export default function FounderMessageSection() {
         <img 
           src="/gallery/home-page/25.png" 
           alt="Experiential Pathways Landscape" 
+          loading="lazy"
+          decoding="async"
           className="think-img"
           style={{
             width: '70%',

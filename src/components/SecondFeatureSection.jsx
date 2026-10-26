@@ -117,6 +117,8 @@ export default function SecondFeatureSection() {
                 <img
                   src={card.img}
                   alt={card.alt}
+                  loading="lazy"
+                  decoding="async"
                   width="70"
                   height="70"
                   style={{

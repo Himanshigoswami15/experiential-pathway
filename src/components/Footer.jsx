@@ -338,7 +338,7 @@ export default function Footer() {
             gap: '1rem'
           }}
         >
-          {/* Copyright & Admin Link */}
+          {/* Copyright */}
           <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
             <p 
               style={{
@@ -350,27 +350,6 @@ export default function Footer() {
             >
               © 2026 Experiential Pathways. All Rights Reserved.
             </p>
-            <Link
-              to="/admin"
-              title="Administrator Portal"
-              style={{
-                color: 'rgba(255, 255, 255, 0.45)',
-                textDecoration: 'none',
-                fontSize: '0.8rem',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-                marginLeft: '10px',
-                padding: '2px 8px',
-                borderRadius: '4px',
-                background: 'rgba(0, 0, 0, 0.15)',
-                transition: 'color 0.2s ease'
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = '#ffffff'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255, 255, 255, 0.45)'; }}
-            >
-              <i className="bi bi-shield-lock-fill"></i> Admin
-            </Link>
           </div>
 
           {/* Social Icons */}

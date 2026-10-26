@@ -6,12 +6,12 @@
     "description": "Central database file containing hero video, team roster, destination itineraries, and contact information."
   },
   "hero": {
-    "videoUrl": "https://experientialpathways.com/assets/india%20video-BqUeY7-T.mp4",
+    "videoUrl": "/assets/india_hero_instant.mp4",
     "poster": "/gallery/home-page/23_1.png",
     "fallbackUrls": [
-      "https://experientialpathways.com/assets/nepalvideo_compress-BKG0amqc.mp4",
-      "https://experientialpathways.com/assets/bhutan_compress-CccLzWC4.mp4",
-      "/assets/india video-BqUeY7-T.mp4"
+      "/assets/india_hero_optimized.mp4",
+      "/assets/india video-BqUeY7-T.mp4",
+      "https://experientialpathways.com/assets/india%20video-BqUeY7-T.mp4"
     ],
     "headlineLine1": "EXPERIENTIAL LEARNING FOR",
     "headlineAccent": "NOTEWORTHY",

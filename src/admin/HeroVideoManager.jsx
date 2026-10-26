@@ -33,9 +33,9 @@ export default function HeroVideoManager({ showToast }) {
   // Video presets
   const videoPresets = [
     {
-      title: 'India Expedition Video',
-      url: 'https://experientialpathways.com/assets/india%20video-BqUeY7-T.mp4',
-      localUrl: '/assets/india video-BqUeY7-T.mp4',
+      title: 'India Expedition Video (Instant Optimized)',
+      url: '/assets/india_hero_instant.mp4',
+      localUrl: '/assets/india_hero_instant.mp4',
       poster: '/gallery/home-page/23_1.png',
       region: 'India'
     },

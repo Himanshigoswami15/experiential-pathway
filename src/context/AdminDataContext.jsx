@@ -15,11 +15,21 @@ export function AdminDataProvider({ children }) {
       const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        // Merge with defaults to ensure all keys exist
+        const heroMerged = { ...DEFAULT_ADMIN_DATA.hero, ...(parsed.hero || {}) };
+        // Migrate legacy 160MB remote video URL to optimized instant local video
+        if (
+          !heroMerged.videoUrl || 
+          heroMerged.videoUrl.includes('india%20video-BqUeY7-T.mp4') ||
+          heroMerged.videoUrl.includes('india video-BqUeY7-T.mp4')
+        ) {
+          heroMerged.videoUrl = DEFAULT_ADMIN_DATA.hero.videoUrl;
+          heroMerged.fallbackUrls = DEFAULT_ADMIN_DATA.hero.fallbackUrls;
+        }
+
         return {
           ...DEFAULT_ADMIN_DATA,
           ...parsed,
-          hero: { ...DEFAULT_ADMIN_DATA.hero, ...(parsed.hero || {}) },
+          hero: heroMerged,
           destinations: { ...DEFAULT_ADMIN_DATA.destinations, ...(parsed.destinations || {}) },
           contact: { ...DEFAULT_ADMIN_DATA.contact, ...(parsed.contact || {}) }
         };

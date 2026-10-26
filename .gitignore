@@ -28,5 +28,7 @@ dist-ssr
 sri_lanka_beaches_temp.html
 remote_*.png
 
-# Large video files (exceeds GitHub 100MB limit and local drive capacity)
+# Large video files (raw videos exceed GitHub 100MB limit)
 *.mp4
+!public/assets/*.mp4
+
