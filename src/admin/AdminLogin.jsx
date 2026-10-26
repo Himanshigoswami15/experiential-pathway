@@ -4,8 +4,8 @@ import './admin.css';
 
 export default function AdminLogin({ onLoginSuccess }) {
   const { loginAdmin } = useAdminData();
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('admin123');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
@@ -18,12 +18,6 @@ export default function AdminLogin({ onLoginSuccess }) {
     } else {
       setError(res.message);
     }
-  };
-
-  const handleDemoFill = () => {
-    setUsername('admin');
-    setPassword('admin123');
-    setError('');
   };
 
   return (
@@ -152,37 +146,7 @@ export default function AdminLogin({ onLoginSuccess }) {
             </div>
           </div>
 
-          <div style={{
-            background: 'rgba(184, 134, 11, 0.08)',
-            border: '1px dashed rgba(184, 134, 11, 0.35)',
-            borderRadius: '8px',
-            padding: '10px 12px',
-            marginBottom: '1.5rem',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            fontSize: '0.8rem'
-          }}>
-            <span style={{ color: 'var(--adm-gold-dark)' }}>
-              <i className="bi bi-key-fill me-1"></i> Default: <strong>admin</strong> / <strong>admin123</strong>
-            </span>
-            <button
-              type="button"
-              onClick={handleDemoFill}
-              style={{
-                background: 'rgba(184, 134, 11, 0.12)',
-                border: '1px solid var(--adm-gold)',
-                color: 'var(--adm-gold-dark)',
-                borderRadius: '6px',
-                padding: '3px 8px',
-                fontSize: '0.74rem',
-                cursor: 'pointer',
-                fontWeight: 600
-              }}
-            >
-              Fill Credentials
-            </button>
-          </div>
+
 
           <button 
             type="submit" 

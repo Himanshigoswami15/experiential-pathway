@@ -21,9 +21,9 @@ export default function AdminDashboard({ onNavigate }) {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span style={{
-            background: 'rgba(16, 185, 129, 0.15)',
-            border: '1px solid rgba(16, 185, 129, 0.3)',
-            color: '#10b981',
+            background: 'rgba(0, 229, 153, 0.12)',
+            border: '1px solid rgba(0, 229, 153, 0.35)',
+            color: '#00b377',
             padding: '6px 14px',
             borderRadius: '20px',
             fontSize: '0.82rem',
@@ -32,8 +32,8 @@ export default function AdminDashboard({ onNavigate }) {
             alignItems: 'center',
             gap: '8px'
           }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981' }}></span>
-            Live Site Synchronized
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#00e599' }}></span>
+            Neon Database Connected
           </span>
 
           <a href="/" target="_blank" rel="noopener noreferrer" className="adm-btn adm-btn-secondary">

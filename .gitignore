@@ -32,3 +32,4 @@ remote_*.png
 *.mp4
 !public/assets/*.mp4
 
+.neon

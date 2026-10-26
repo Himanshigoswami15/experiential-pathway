@@ -1,5 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import databaseSeed from '../data/database.json';
+import { 
+  fetchSiteContentFromNeon, 
+  saveSiteContentToNeon, 
+  saveInquiryToNeon 
+} from '../services/neonDb';
 
 const LOCAL_STORAGE_KEY = 'ep_admin_data_v1';
 const AUTH_STORAGE_KEY = 'ep_admin_auth_v1';
@@ -48,12 +53,48 @@ export function AdminDataProvider({ children }) {
     }
   });
 
-  // Save to localStorage on data change
+  const initialNeonLoadDone = useRef(false);
+
+  // Sync latest changes from Neon on mount
+  useEffect(() => {
+    let active = true;
+    fetchSiteContentFromNeon().then((remoteData) => {
+      if (active && remoteData) {
+        console.log('[Neon] Synced latest site content from Neon Postgres');
+        setData(prev => {
+          const heroMerged = {
+            ...DEFAULT_ADMIN_DATA.hero,
+            ...(prev.hero || {}),
+            ...(remoteData.hero || {})
+          };
+          return {
+            ...DEFAULT_ADMIN_DATA,
+            ...prev,
+            ...remoteData,
+            hero: heroMerged
+          };
+        });
+      }
+    }).catch(err => {
+      console.warn('[Neon] Initial sync error:', err);
+    }).finally(() => {
+      if (active) initialNeonLoadDone.current = true;
+    });
+
+    return () => { active = false; };
+  }, []);
+
+  // Save to localStorage & Neon on data change
   useEffect(() => {
     try {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
     } catch (e) {
       console.error('Error saving admin data to localStorage:', e);
+    }
+
+    // Save changes to Neon Postgres
+    if (initialNeonLoadDone.current) {
+      saveSiteContentToNeon(data);
     }
   }, [data]);
 
@@ -227,6 +268,8 @@ export function AdminDataProvider({ children }) {
         inquiries: [newInquiry, ...(prev.contact.inquiries || [])]
       }
     }));
+    // Persist to Neon PostgreSQL inquiries table
+    saveInquiryToNeon(inquiry);
     return newInquiry;
   };
 
