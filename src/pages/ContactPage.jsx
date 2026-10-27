@@ -8,7 +8,8 @@ export default function ContactPage() {
   const phone = contact.phone || '09257001999';
   const phoneFormatted = contact.phoneFormatted || phone;
   const email = contact.email || 'info@experientialpathways.com';
-  const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwznoe9-oQO_n8IztqhHwchgec1CFOn_ayswKgkXXg/exec';
+  const whatsapp = contact.whatsapp || '919257001999';
+  const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx0jC0jhHGDUiX46btjnwvsN7PqcdBbzdBnLD65E_eHI3JQXwr_oRrfCSjN_e0Fhb6F/exec';
   const scriptUrl = contact.scriptUrl || DEFAULT_SCRIPT_URL;
 
   useEffect(() => {
