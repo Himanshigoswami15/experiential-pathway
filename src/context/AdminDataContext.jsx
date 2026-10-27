@@ -77,11 +77,25 @@ export function AdminDataProvider({ children }) {
             ...(prev.hero || {}),
             ...(remoteData.hero || {})
           };
+          const contactMerged = {
+            ...DEFAULT_ADMIN_DATA.contact,
+            ...(prev.contact || {}),
+            ...(remoteData.contact || {})
+          };
+          if (
+            !contactMerged.scriptUrl ||
+            contactMerged.scriptUrl.includes('AKfycbw4S5yXbHl1kMM1qxMzPKygriXzxvWHWamqEbEXIrHAxQCjI88WppBixOnXdyp9clDs') ||
+            contactMerged.scriptUrl.includes('AKfycbwpIA6wXThtAge0DGWXR1PSuTRmHo0S9qMJRlBKcmMGgHD_DWTkEdm95v-CZIyyllY0') ||
+            contactMerged.scriptUrl.includes('AKfycbwznoe9')
+          ) {
+            contactMerged.scriptUrl = DEFAULT_ADMIN_DATA.contact.scriptUrl;
+          }
           return {
             ...DEFAULT_ADMIN_DATA,
             ...prev,
             ...remoteData,
-            hero: heroMerged
+            hero: heroMerged,
+            contact: contactMerged
           };
         });
       }
