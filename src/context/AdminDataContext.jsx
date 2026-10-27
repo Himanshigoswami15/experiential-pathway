@@ -31,12 +31,20 @@ export function AdminDataProvider({ children }) {
           heroMerged.fallbackUrls = DEFAULT_ADMIN_DATA.hero.fallbackUrls;
         }
 
+        const contactMerged = { ...DEFAULT_ADMIN_DATA.contact, ...(parsed.contact || {}) };
+        if (
+          !contactMerged.scriptUrl ||
+          contactMerged.scriptUrl.includes('AKfycbw4S5yXbHl1kMM1qxMzPKygriXzxvWHWamqEbEXIrHAxQCjI88WppBixOnXdyp9clDs')
+        ) {
+          contactMerged.scriptUrl = DEFAULT_ADMIN_DATA.contact.scriptUrl;
+        }
+
         return {
           ...DEFAULT_ADMIN_DATA,
           ...parsed,
           hero: heroMerged,
           destinations: { ...DEFAULT_ADMIN_DATA.destinations, ...(parsed.destinations || {}) },
-          contact: { ...DEFAULT_ADMIN_DATA.contact, ...(parsed.contact || {}) }
+          contact: contactMerged
         };
       }
     } catch (e) {
