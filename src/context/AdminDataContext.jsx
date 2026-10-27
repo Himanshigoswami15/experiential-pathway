@@ -34,7 +34,8 @@ export function AdminDataProvider({ children }) {
         const contactMerged = { ...DEFAULT_ADMIN_DATA.contact, ...(parsed.contact || {}) };
         if (
           !contactMerged.scriptUrl ||
-          contactMerged.scriptUrl.includes('AKfycbw4S5yXbHl1kMM1qxMzPKygriXzxvWHWamqEbEXIrHAxQCjI88WppBixOnXdyp9clDs')
+          contactMerged.scriptUrl.includes('AKfycbw4S5yXbHl1kMM1qxMzPKygriXzxvWHWamqEbEXIrHAxQCjI88WppBixOnXdyp9clDs') ||
+          contactMerged.scriptUrl.includes('AKfycbwpIA6wXThtAge0DGWXR1PSuTRmHo0S9qMJRlBKcmMGgHD_DWTkEdm95v-CZIyyllY0')
         ) {
           contactMerged.scriptUrl = DEFAULT_ADMIN_DATA.contact.scriptUrl;
         }

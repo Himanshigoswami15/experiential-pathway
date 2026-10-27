@@ -8,8 +8,7 @@ export default function ContactPage() {
   const phone = contact.phone || '09257001999';
   const phoneFormatted = contact.phoneFormatted || phone;
   const email = contact.email || 'info@experientialpathways.com';
-  const whatsapp = contact.whatsapp || '919257001999';
-  const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwpIA6wXThtAge0DGWXR1PSuTRmHo0S9qMJRlBKcmMGgHD_DWTkEdm95v-CZIyyllY0/exec';
+  const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwznoe9-oQO_n8IztqhHwchgec1CFOn_ayswKgkXXg/exec';
   const scriptUrl = contact.scriptUrl || DEFAULT_SCRIPT_URL;
 
   useEffect(() => {
@@ -93,7 +92,9 @@ export default function ContactPage() {
       }
 
       // 2. Submit to Google Apps Script Web App endpoint
-      const targetUrl = scriptUrl || DEFAULT_SCRIPT_URL;
+      // Normalize /dev (internal test URL) to /exec (public Web App URL)
+      const rawUrl = (scriptUrl || DEFAULT_SCRIPT_URL).trim();
+      const targetUrl = rawUrl.replace(/\/dev(\?.*)?$/, '/exec$1');
 
       const params = new URLSearchParams();
       // Required and optional field names expected by Google Apps Script
